@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股每日复盘 · 2026-09-22</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         background: #f5f5f0; color: #2c2c2a; margin: 0; padding: 0; line-height: 1.6; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 24px 20px 60px; }
+  .header { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); border-radius: 12px;
+            padding: 20px 28px; margin-bottom: 18px; }
+  .header h1 { margin: 0 0 6px 0; font-size: 22px; font-weight: 500; }
+  .header .meta { color: #888780; font-size: 13px; }
+  .tldr { background: #fff7ed; border-left: 4px solid #BA7517; border-radius: 8px;
+          padding: 14px 20px; margin-bottom: 18px; font-size: 14px; }
+  .tldr b { color: #854F0B; }
+  .section { background: #fff; border: 0.5px solid rgba(0,0,0,0.12); border-radius: 12px;
+             padding: 18px 24px; margin-bottom: 16px; }
+  .section h2 { font-size: 16px; font-weight: 500; margin: 0 0 12px 0; padding-bottom: 8px;
+                border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; }
+  .section h2 .num { display: inline-block; width: 22px; height: 22px; line-height: 22px;
+                     text-align: center; background: #185FA5; color: #fff; border-radius: 50%;
+                     margin-right: 8px; font-size: 12px; font-weight: 500; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px; margin-bottom: 12px; }
+  .metric { background: #f1efe8; border-radius: 8px; padding: 12px 14px; }
+  .metric .lbl { color: #888780; font-size: 12px; margin-bottom: 4px; }
+  .metric .val { font-size: 20px; font-weight: 500; }
+  .metric .sub { font-size: 12px; color: #5F5E5A; margin-top: 2px; }
+  .up { color: #E24B4A; }
+  .down { color: #639922; }
+  .flat { color: #888780; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: right; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #f1efe8; color: #444441; font-weight: 500; font-size: 12px; }
+  tr:hover td { background: #fafaf6; }
+  .chart { width: 100%; height: 360px; margin: 8px 0; }
+  .chart-sm { width: 100%; height: 260px; margin: 8px 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
+  .themes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                 gap: 10px; }
+  .theme-card { background: #f1efe8; border-radius: 8px; padding: 10px 14px; }
+  .theme-card .name { font-size: 13px; font-weight: 500; }
+  .theme-card .info { font-size: 12px; color: #5F5E5A; margin-top: 2px; }
+  .strategy { background: #fafaf6; border-radius: 8px; padding: 14px 18px; margin-top: 8px; }
+  .strategy ul { margin: 6px 0; padding-left: 20px; }
+  .strategy li { margin: 4px 0; }
+  .tag { display: inline-block; background: #e6f1fb; color: #185FA5; border-radius: 4px;
+         padding: 1px 8px; font-size: 12px; margin-right: 4px; }
+  .tag-warn { background: #fceceb; color: #a32d2d; }
+  .footer { text-align: center; color: #888780; font-size: 12px; margin-top: 30px; }
+  .note { color: #888780; font-size: 12px; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>A 股每日复盘 · 2026-09-22</h1>
+    <div class="meta">生成于 2026-09-22 15:31:50 · 数据源：TDX (通达信) + 新浪财经</div>
+  </div>
+
+  <div class="tldr">
+    <b>一句话总结：</b>今日指数护盘、个股分化（典型二八行情） —— 沪指+0.06%，创业板+0.01%，全市场 42.7% 个股上涨，涨停 89 家、跌停 10 家。
+  </div>
+
+  <!-- 1. 市场概况 -->
+  <div class="section">
+    <h2><span class="num">1</span>今日市场概况</h2>
+    <div class="grid-4">
+      <div class="metric">
+        <div class="lbl">上证指数</div>
+        <div class="val up">
+          3952.13
+        </div>
+        <div class="sub up">
+          +0.06% · 10079.96亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">深证成指</div>
+        <div class="val down">
+          13723.74
+        </div>
+        <div class="sub down">
+          -0.05% · 11275.55亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">创业板指</div>
+        <div class="val up">
+          3399.93
+        </div>
+        <div class="sub up">
+          +0.01% · 5445.84亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">沪深300</div>
+        <div class="val up">
+          4544.59
+        </div>
+        <div class="sub up">
+          +0.11% · 5236.17亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">上证50</div>
+        <div class="val up">
+          2899.04
+        </div>
+        <div class="sub up">
+          +0.43% · 1471.47亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">中证500</div>
+        <div class="val down">
+          7828.94
+        </div>
+        <div class="sub down">
+          -0.27% · 3652.21亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">科创50</div>
+        <div class="val up">
+          1665.04
+        </div>
+        <div class="sub up">
+          +0.46% · 1134.96亿
+        </div>
+      </div>
+      <div class="metric">
+        <div class="lbl">北证50</div>
+        <div class="val down">
+          1046.80
+        </div>
+        <div class="sub down">
+          -1.08% · 182.86亿
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="metric">
+        <div class="lbl">上涨家数</div>
+        <div class="val up">2374</div>
+        <div class="sub">占比 42.7%</div>
+      </div>
+      <div class="metric">
+        <div class="lbl">下跌家数</div>
+        <div class="val down">3029</div>
+        <div class="sub">占比 54.4%</div>
+      </div>
+      <div class="metric">
+        <div class="lbl">涨停（≥9.8%）</div>
+        <div class="val up">89</div>
+        <div class="sub">含 ST 与新股</div>
+      </div>
+      <div class="metric">
+        <div class="lbl">跌停（≤-9.8%）</div>
+        <div class="val down">10</div>
+        <div class="sub">含 ST 与退市</div>
+      </div>
+    </div>
+
+    <div id="chart_intraday" class="chart"></div>
+  </div>
+
+  <!-- 2. 涨跌停统计 -->
+  <div class="section">
+    <h2><span class="num">2</span>核心涨跌停统计</h2>
+    <p class="note">注：以下按涨跌幅绝对值取近似，非交易所官方口径（含 ST、新股、复牌首日）。</p>
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:14px; margin:8px 0;">涨幅 TOP 10</h3>
+        <table>
+          <thead><tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>成交额(亿)</th></tr></thead>
+          <tbody>
+          <tr>
+            <td>920229</td>
+            <td>N世纪</td>
+            <td class="up">+742.37%</td>
+            <td>7.72</td>
+          </tr>
+          <tr>
+            <td>301686</td>
+            <td>N中塑</td>
+            <td class="up">+683.28%</td>
+            <td>23.39</td>
+          </tr>
+          <tr>
+            <td>920526</td>
+            <td>凯华材料</td>
+            <td class="up">+29.98%</td>
+            <td>3.34</td>
+          </tr>
+          <tr>
+            <td>300110</td>
+            <td>华仁药业</td>
+            <td class="up">+20.06%</td>
+            <td>12.85</td>
+          </tr>
+          <tr>
+            <td>688781</td>
+            <td>视涯科技</td>
+            <td class="up">+20.00%</td>
+            <td>5.76</td>
+          </tr>
+          <tr>
+            <td>300324</td>
+            <td>旋极信息</td>
+            <td class="up">+20.00%</td>
+            <td>11.63</td>
+          </tr>
+          <tr>
+            <td>301234</td>
+            <td>五洲医疗</td>
+            <td class="up">+20.00%</td>
+            <td>6.83</td>
+          </tr>
+          <tr>
+            <td>301047</td>
+            <td>义翘神州</td>
+            <td class="up">+16.09%</td>
+            <td>24.54</td>
+          </tr>
+          <tr>
+            <td>688105</td>
+            <td>诺唯赞生物</td>
+            <td class="up">+15.50%</td>
+            <td>9.87</td>
+          </tr>
+          <tr>
+            <td>688112</td>
+            <td>鼎阳科技</td>
+            <td class="up">+14.40%</td>
+            <td>13.59</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="font-size:14px; margin:8px 0;">跌幅 TOP 10</h3>
+        <table>
+          <thead><tr><th>代码</th><th>名称</th><th>涨跌幅</th><th>成交额(亿)</th></tr></thead>
+          <tbody>
+          <tr>
+            <td>688117</td>
+            <td>圣诺生物</td>
+            <td class="down">-18.61%</td>
+            <td>9.54</td>
+          </tr>
+          <tr>
+            <td>688837</td>
+            <td>C信诺维</td>
+            <td class="down">-13.03%</td>
+            <td>14.79</td>
+          </tr>
+          <tr>
+            <td>920298</td>
+            <td>腾信精密</td>
+            <td class="down">-11.11%</td>
+            <td>6.62</td>
+          </tr>
+          <tr>
+            <td>603226</td>
+            <td>菲林格尔</td>
+            <td class="down">-10.01%</td>
+            <td>3.81</td>
+          </tr>
+          <tr>
+            <td>603375</td>
+            <td>盛景微电子</td>
+            <td class="down">-10.00%</td>
+            <td>4.67</td>
+          </tr>
+          <tr>
+            <td>000668</td>
+            <td>荣丰控股</td>
+            <td class="down">-9.97%</td>
+            <td>2.01</td>
+          </tr>
+          <tr>
+            <td>600499</td>
+            <td>科达制造</td>
+            <td class="down">-9.93%</td>
+            <td>12.50</td>
+          </tr>
+          <tr>
+            <td>688146</td>
+            <td>中船派瑞特气</td>
+            <td class="down">-9.84%</td>
+            <td>53.09</td>
+          </tr>
+          <tr>
+            <td>920895</td>
+            <td>花溪科技</td>
+            <td class="down">-9.63%</td>
+            <td>2.30</td>
+          </tr>
+          <tr>
+            <td>002453</td>
+            <td>华软科技</td>
+            <td class="down">-9.54%</td>
+            <td>8.22</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 板块轮动 -->
+  <div class="section">
+    <h2><span class="num">3</span>板块轮动与热点主线</h2>
+    <p class="note">说明：东财板块 API 在本环境被风控，主题按"涨跌幅/成交额 TOP 股票名关键词"模糊归类，仅作参考。</p>
+    <div class="themes-grid">
+      <div class="theme-card">
+        <div class="name down">
+          医药/创新药 <span class="tag">2只</span>
+        </div>
+        <div class="info">平均 -1.55%</div>
+        <div class="info" style="margin-top:4px;">
+<span class="tag">诺唯赞生物</span><span class="tag">圣诺生物</span>        </div>
+      </div>
+      <div class="theme-card">
+        <div class="name down">
+          半导体/存储 <span class="tag">2只</span>
+        </div>
+        <div class="info">平均 -8.89%</div>
+        <div class="info" style="margin-top:4px;">
+<span class="tag">盛景微电子</span><span class="tag">德科立光电子</span>        </div>
+      </div>
+    </div>
+    <div id="chart_themes" class="chart-sm"></div>
+  </div>
+
+  <!-- 4. 成交额 TOP 20 -->
+  <div class="section">
+    <h2><span class="num">4</span>全 A 成交额 TOP 20</h2>
+    <table>
+      <thead><tr><th>#</th><th>代码</th><th>名称</th><th>收盘价</th><th>涨跌幅</th><th>成交额(亿)</th><th>换手率</th></tr></thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>300308</td>
+        <td>中际旭创</td>
+        <td>927.720</td>
+        <td class="down">
+          -1.41%
+        </td>
+        <td>223.37</td>
+        <td>2.12%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>603986</td>
+        <td>兆易创新</td>
+        <td>402.100</td>
+        <td class="up">
+          +2.65%
+        </td>
+        <td>205.78</td>
+        <td>7.59%</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>688008</td>
+        <td>澜起科技</td>
+        <td>221.830</td>
+        <td class="up">
+          +5.58%
+        </td>
+        <td>169.70</td>
+        <td>6.53%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>688825</td>
+        <td>长鑫科技</td>
+        <td>57.860</td>
+        <td class="up">
+          +1.72%
+        </td>
+        <td>166.98</td>
+        <td>6.38%</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>002384</td>
+        <td>东山精密</td>
+        <td>198.120</td>
+        <td class="up">
+          +1.59%
+        </td>
+        <td>161.06</td>
+        <td>5.72%</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>300502</td>
+        <td>新易盛</td>
+        <td>455.000</td>
+        <td class="down">
+          -0.38%
+        </td>
+        <td>160.43</td>
+        <td>2.76%</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>600487</td>
+        <td>亨通光电</td>
+        <td>73.000</td>
+        <td class="up">
+          +1.74%
+        </td>
+        <td>158.35</td>
+        <td>8.72%</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>300750</td>
+        <td>宁德时代</td>
+        <td>304.630</td>
+        <td class="up">
+          +2.54%
+        </td>
+        <td>144.77</td>
+        <td>1.11%</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>300476</td>
+        <td>胜宏科技</td>
+        <td>242.100</td>
+        <td class="down">
+          -2.38%
+        </td>
+        <td>114.99</td>
+        <td>5.43%</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>688041</td>
+        <td>海光信息</td>
+        <td>256.000</td>
+        <td class="up">
+          +3.88%
+        </td>
+        <td>112.27</td>
+        <td>1.84%</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>600176</td>
+        <td>中国巨石</td>
+        <td>45.470</td>
+        <td class="down">
+          -0.87%
+        </td>
+        <td>108.93</td>
+        <td>5.92%</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>600522</td>
+        <td>中天科技</td>
+        <td>36.880</td>
+        <td class="down">
+          -0.19%
+        </td>
+        <td>107.07</td>
+        <td>8.38%</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>688256</td>
+        <td>寒武纪科技</td>
+        <td>1121.000</td>
+        <td class="up">
+          +0.74%
+        </td>
+        <td>97.10</td>
+        <td>1.37%</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>002156</td>
+        <td>通富微电</td>
+        <td>63.520</td>
+        <td class="up">
+          +3.83%
+        </td>
+        <td>91.52</td>
+        <td>9.36%</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>000725</td>
+        <td>京东方Ａ</td>
+        <td>6.000</td>
+        <td class="down">
+          -1.15%
+        </td>
+        <td>90.15</td>
+        <td>4.20%</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>600183</td>
+        <td>生益科技</td>
+        <td>143.450</td>
+        <td class="down">
+          -1.93%
+        </td>
+        <td>88.66</td>
+        <td>2.52%</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>002436</td>
+        <td>兴森科技</td>
+        <td>44.230</td>
+        <td class="down">
+          -0.23%
+        </td>
+        <td>80.55</td>
+        <td>11.58%</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>300394</td>
+        <td>天孚通信</td>
+        <td>275.840</td>
+        <td class="down">
+          -1.23%
+        </td>
+        <td>80.05</td>
+        <td>2.63%</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>603256</td>
+        <td>宏和科技</td>
+        <td>159.220</td>
+        <td class="up">
+          +6.92%
+        </td>
+        <td>78.94</td>
+        <td>5.43%</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>600584</td>
+        <td>长电科技</td>
+        <td>72.240</td>
+        <td class="up">
+          +0.03%
+        </td>
+        <td>77.54</td>
+        <td>5.94%</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 涨停核心 -->
+  <div class="section">
+    <h2><span class="num">5</span>涨停核心标的 TOP 20</h2>
+    <p class="note">注：涨停原因需逐股查公告与板块联动才能精准揭秘，本表只给名称与涨幅，详细归因请参考"板块轮动"段。</p>
+    <table>
+      <thead><tr><th>#</th><th>代码</th><th>名称</th><th>涨跌幅</th><th>成交额(亿)</th><th>换手率</th></tr></thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>920229</td>
+        <td>N世纪</td>
+        <td class="up">+742.37%</td>
+        <td>7.72</td>
+        <td>98.98%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>301686</td>
+        <td>N中塑</td>
+        <td class="up">+683.28%</td>
+        <td>23.39</td>
+        <td>90.03%</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>920526</td>
+        <td>凯华材料</td>
+        <td class="up">+29.98%</td>
+        <td>3.34</td>
+        <td>25.66%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>300110</td>
+        <td>华仁药业</td>
+        <td class="up">+20.06%</td>
+        <td>12.85</td>
+        <td>29.47%</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>688781</td>
+        <td>视涯科技</td>
+        <td class="up">+20.00%</td>
+        <td>5.76</td>
+        <td>28.10%</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>300324</td>
+        <td>旋极信息</td>
+        <td class="up">+20.00%</td>
+        <td>11.63</td>
+        <td>16.91%</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>301234</td>
+        <td>五洲医疗</td>
+        <td class="up">+20.00%</td>
+        <td>6.83</td>
+        <td>12.50%</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>301047</td>
+        <td>义翘神州</td>
+        <td class="up">+16.09%</td>
+        <td>24.54</td>
+        <td>15.42%</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>688622</td>
+        <td>*ST禾信仪器</td>
+        <td class="up">+16.02%</td>
+        <td>1.78</td>
+        <td>1.86%</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>688105</td>
+        <td>诺唯赞生物</td>
+        <td class="up">+15.50%</td>
+        <td>9.87</td>
+        <td>7.35%</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>688112</td>
+        <td>鼎阳科技</td>
+        <td class="up">+14.40%</td>
+        <td>13.59</td>
+        <td>8.39%</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>688365</td>
+        <td>光云科技</td>
+        <td class="up">+13.91%</td>
+        <td>9.19</td>
+        <td>12.88%</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>920227</td>
+        <td>美登科技</td>
+        <td class="up">+13.75%</td>
+        <td>1.14</td>
+        <td>12.03%</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>300741</td>
+        <td>华宝股份</td>
+        <td class="up">+13.42%</td>
+        <td>9.20</td>
+        <td>5.35%</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>920427</td>
+        <td>华维设计</td>
+        <td class="up">+12.42%</td>
+        <td>2.33</td>
+        <td>36.92%</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>300684</td>
+        <td>中石科技</td>
+        <td class="up">+12.02%</td>
+        <td>35.85</td>
+        <td>15.88%</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>301085</td>
+        <td>亚康股份</td>
+        <td class="up">+11.57%</td>
+        <td>7.00</td>
+        <td>14.24%</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>301311</td>
+        <td>昆船智能</td>
+        <td class="up">+11.43%</td>
+        <td>3.06</td>
+        <td>8.44%</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>301198</td>
+        <td>喜悦智行</td>
+        <td class="up">+11.36%</td>
+        <td>1.74</td>
+        <td>7.41%</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>688077</td>
+        <td>大地熊新材料</td>
+        <td class="up">+11.36%</td>
+        <td>1.53</td>
+        <td>4.63%</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 6. 跌停核心 -->
+  <div class="section">
+    <h2><span class="num">6</span>跌停核心标的 TOP 20</h2>
+    <table>
+      <thead><tr><th>#</th><th>代码</th><th>名称</th><th>涨跌幅</th><th>成交额(亿)</th><th>换手率</th></tr></thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>688117</td>
+        <td>圣诺生物</td>
+        <td class="down">-18.61%</td>
+        <td>9.54</td>
+        <td>20.12%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>688837</td>
+        <td>C信诺维</td>
+        <td class="down">-13.03%</td>
+        <td>14.79</td>
+        <td>53.68%</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>920298</td>
+        <td>腾信精密</td>
+        <td class="down">-11.11%</td>
+        <td>6.62</td>
+        <td>47.89%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>603226</td>
+        <td>菲林格尔</td>
+        <td class="down">-10.01%</td>
+        <td>3.81</td>
+        <td>3.14%</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>603375</td>
+        <td>盛景微电子</td>
+        <td class="down">-10.00%</td>
+        <td>4.67</td>
+        <td>14.68%</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>603378</td>
+        <td>*ST亚士</td>
+        <td class="down">-10.00%</td>
+        <td>0.20</td>
+        <td>0.86%</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>000610</td>
+        <td>*ST西旅</td>
+        <td class="down">-9.98%</td>
+        <td>1.65</td>
+        <td>9.19%</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>000668</td>
+        <td>荣丰控股</td>
+        <td class="down">-9.97%</td>
+        <td>2.01</td>
+        <td>7.69%</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>600499</td>
+        <td>科达制造</td>
+        <td class="down">-9.93%</td>
+        <td>12.50</td>
+        <td>5.38%</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>688146</td>
+        <td>中船派瑞特气</td>
+        <td class="down">-9.84%</td>
+        <td>53.09</td>
+        <td>16.27%</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 7. 消息面 + 策略 -->
+  <div class="section">
+    <h2><span class="num">7</span>消息面与明日策略</h2>
+    <div class="strategy">
+      <h3 style="font-size:14px; margin:0 0 8px 0;">消息面（数据源未覆盖，待补）</h3>
+      <p class="note">本环境未拉取当日新闻资讯。建议结合东方财富、新浪财经、同花顺首页的"要闻"区自行补充。</p>
+    </div>
+    <div class="strategy">
+      <h3 style="font-size:14px; margin:12px 0 8px 0;">操作建议（基于今日结构）</h3>
+      <ul>
+        <li><b>建议仓位：</b>4-6 成（震荡市，控仓）</li>
+        <li><b>可关注方向：</b>
+<span class="tag">医药/创新药</span><span class="tag">半导体/存储</span>        </li>
+        <li><b>需回避风险：</b>
+<span class="tag tag-warn">高位题材股（跌停数偏多）</span><span class="tag tag-warn">半导体/存储</span>        </li>
+        <li><b>具体纪律：</b>不追高（涨幅 >7% 谨慎接力）、不抄底（跌停股次日不预测反弹）、分批建仓（单只不超过 1 成）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    本报告由 Python 自动生成 · 数据源：通达信 TDX + 新浪财经<br>
+    仅供参考，不构成投资建议。市场有风险，投资需谨慎。
+  </div>
+
+</div>
+
+<script>
+// ====== 1. 指数日内走势图 ======
+(function() {
+  var el = document.getElementById('chart_intraday');
+  if (!el || !window.echarts) return;
+  var chart = echarts.init(el);
+  var lines = {"0_399001": [], "0_399006": [], "1_000001": [], "1_000300": []};
+  var indicesMeta = [{"amount": 1007995584512.0, "amount_yi": 10079.96, "change": 2.22, "change_pct": 0.06, "close": 3952.13, "code": "000001", "high": 3967.68, "last_close": 3949.91, "low": 3945.42, "market": 1, "name": "\u4e0a\u8bc1\u6307\u6570", "open": 3963.81, "symbol": "sh000001", "volume": 506148369}, {"amount": 1127554744320.0, "amount_yi": 11275.55, "change": -6.28, "change_pct": -0.05, "close": 13723.74, "code": "399001", "high": 13914.21, "last_close": 13730.02, "low": 13691.09, "market": 0, "name": "\u6df1\u8bc1\u6210\u6307", "open": 13858.62, "symbol": "sz399001", "volume": 645794973}, {"amount": 544584007680.0, "amount_yi": 5445.84, "change": 0.34, "change_pct": 0.01, "close": 3399.93, "code": "399006", "high": 3472.47, "last_close": 3399.59, "low": 3387.88, "market": 0, "name": "\u521b\u4e1a\u677f\u6307", "open": 3446.33, "symbol": "sz399006", "volume": 191788466}, {"amount": 523616714752.0, "amount_yi": 5236.17, "change": 5.02, "change_pct": 0.11, "close": 4544.59, "code": "000300", "high": 4583.38, "last_close": 4539.57, "low": 4537.04, "market": 1, "name": "\u6caa\u6df1300", "open": 4569.87, "symbol": "sh000300", "volume": 177863876}, {"amount": 147147259904.0, "amount_yi": 1471.47, "change": 12.43, "change_pct": 0.43, "close": 2899.04, "code": "000016", "high": 2911.93, "last_close": 2886.61, "low": 2895.3, "market": 1, "name": "\u4e0a\u8bc150", "open": 2905.96, "symbol": "sh000016", "volume": 37944205}, {"amount": 365221281792.0, "amount_yi": 3652.21, "change": -21.54, "change_pct": -0.27, "close": 7828.94, "code": "000905", "high": 7922.62, "last_close": 7850.48, "low": 7808.98, "market": 1, "name": "\u4e2d\u8bc1500", "open": 7911.64, "symbol": "sh000905", "volume": 156504559}, {"amount": 113496121344.0, "amount_yi": 1134.96, "change": 7.56, "change_pct": 0.46, "close": 1665.04, "code": "000688", "high": 1707.67, "last_close": 1657.48, "low": 1657.22, "market": 1, "name": "\u79d1\u521b50", "open": 1699.05, "symbol": "sh000688", "volume": 8847749}, {"amount": 18285881344.0, "amount_yi": 182.86, "change": -11.38, "change_pct": -1.08, "close": 1046.8, "code": "899050", "high": 1071.87, "last_close": 1058.18, "low": 1045.27, "market": 2, "name": "\u5317\u8bc150", "open": 1065.71, "symbol": "bj899050", "volume": 8302476}];
+  var series = [];
+  var nameMap = {
+    '1_000001': '上证指数',
+    '0_399001': '深证成指',
+    '0_399006': '创业板指',
+    '1_000300': '沪深300'
+  };
+  Object.keys(lines).forEach(function(k) {
+    var arr = lines[k];
+    if (!arr || !arr.length) return;
+    var pts = arr.map(function(b) {
+      var t = (b.time || '').slice(11, 16);
+      return [t, b.close];
+    });
+    // 归一化：相对昨收的 %
+    var firstClose = arr[0] && arr[0].close;
+    var lastClose = null;
+    for (var i = arr.length - 1; i >= 0; i--) {
+      if (arr[i] && arr[i].close) { lastClose = arr[i].close; break; }
+    }
+    series.push({
+      name: nameMap[k] || k,
+      type: 'line',
+      smooth: true,
+      showSymbol: false,
+      data: pts
+    });
+  });
+  chart.setOption({
+    tooltip: { trigger: 'axis' },
+    legend: { data: series.map(function(s){ return s.name; }), top: 0 },
+    grid: { left: 50, right: 20, top: 40, bottom: 30 },
+    xAxis: { type: 'category', axisLabel: { fontSize: 11 } },
+    yAxis: { type: 'value', scale: true, axisLabel: { fontSize: 11 } },
+    series: series
+  });
+})();
+
+// ====== 2. 主题柱状图 ======
+(function() {
+  var el = document.getElementById('chart_themes');
+  if (!el || !window.echarts) return;
+  var chart = echarts.init(el);
+  var themes = [{"avg_pct": -1.55, "count": 2, "stocks": [{"code": "688105", "name": "\u8bfa\u552f\u8d5e\u751f\u7269", "pct": 15.5}, {"code": "688117", "name": "\u5723\u8bfa\u751f\u7269", "pct": -18.61}], "theme": "\u533b\u836f/\u521b\u65b0\u836f"}, {"avg_pct": -8.89, "count": 2, "stocks": [{"code": "603375", "name": "\u76db\u666f\u5fae\u7535\u5b50", "pct": -10.0}, {"code": "688205", "name": "\u5fb7\u79d1\u7acb\u5149\u7535\u5b50", "pct": -7.78}], "theme": "\u534a\u5bfc\u4f53/\u5b58\u50a8"}];
+  if (!themes || !themes.length) {
+    el.style.display = 'none';
+    return;
+  }
+  var names = themes.map(function(t){ return t.theme; });
+  var vals = themes.map(function(t){ return t.avg_pct; });
+  var colors = vals.map(function(v){ return v >= 0 ? '#E24B4A' : '#639922'; });
+  chart.setOption({
+    tooltip: { trigger: 'axis', formatter: function(p){
+      return p[0].name + ': ' + (p[0].value >= 0 ? '+' : '') + p[0].value.toFixed(2) + '%';
+    } },
+    grid: { left: 80, right: 30, top: 10, bottom: 20 },
+    xAxis: { type: 'value', axisLabel: { fontSize: 11, formatter: '{value}%' } },
+    yAxis: { type: 'category', data: names, axisLabel: { fontSize: 11 } },
+    series: [{
+      type: 'bar', data: vals.map(function(v,i){ return { value: v, itemStyle: { color: colors[i] } }; }),
+      barWidth: 16, label: { show: true, position: 'right', fontSize: 11, formatter: function(p){
+        return (p.value >= 0 ? '+' : '') + p.value.toFixed(2) + '%';
+      } }
+    }]
+  });
+})();
+</script>
+</body>
+</html>
