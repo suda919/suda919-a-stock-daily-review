@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘前简报 · 2026-10-22</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f5f5f0; color: #2c2c2a; margin: 0; padding: 28px 16px 60px;
+    line-height: 1.65; font-size: 15px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { margin-bottom: 22px; }
+  h1 { font-size: 24px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.3px; }
+  .sub { color: #8a8a80; font-size: 13px; }
+
+  .verdict {
+    background: #fff; border-left: 4px solid #E24B4A; border-radius: 6px;
+    padding: 18px 20px; margin: 0 0 26px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .verdict .tag {
+    display: inline-block; background: #E24B4A; color: #fff;
+    font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .verdict p { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.7; }
+
+  section { background: #fff; border-radius: 6px; padding: 20px; margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  h2 { font-size: 16px; font-weight: 600; margin: 0 0 14px;
+       padding-left: 10px; border-left: 3px solid #2c2c2a; line-height: 1.2; }
+  h3 { font-size: 14px; font-weight: 600; margin: 16px 0 8px; color: #444; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 500; color: #8a8a80; font-size: 12.5px;
+       padding: 6px 8px 6px 0; border-bottom: 1px solid #e8e8e2; }
+  td { padding: 8px 8px 8px 0; border-bottom: 1px solid #f0f0ea; }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .up { color: #E24B4A; font-weight: 600; }
+  .down { color: #1A8F4A; font-weight: 600; }
+  .flat { color: #8a8a80; }
+
+  ul { margin: 8px 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  .src { color: #8a8a80; font-size: 12px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; gap: 8px; } }
+  .box-good, .box-bad { border-radius: 6px; padding: 14px 16px; }
+  .box-good { background: #fdf4f4; border: 1px solid #f4d8d7; }
+  .box-bad  { background: #f2f8f3; border: 1px solid #d5e8d9; }
+  .box-good h4, .box-bad h4 { margin: 0 0 8px; font-size: 13.5px; }
+  .box-good h4 { color: #c23d3c; }
+  .box-bad  h4 { color: #167a3e; }
+  .box-good ul, .box-bad ul { padding-left: 18px; margin: 0; }
+  .box-good li, .box-bad li { font-size: 13.5px; margin: 7px 0; }
+
+  .signal { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f0ea; }
+  .signal:last-child { border-bottom: none; }
+  .signal .n { flex: none; width: 22px; height: 22px; border-radius: 50%;
+               background: #2c2c2a; color: #fff; font-size: 12px;
+               display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .signal .t { font-weight: 600; font-size: 14px; }
+  .signal .d { color: #6b6b64; font-size: 13.5px; }
+
+  .levels { display: flex; gap: 12px; margin-top: 14px; }
+  .lv { flex: 1; text-align: center; padding: 12px 8px; border-radius: 6px; background: #f7f7f2; }
+  .lv .k { font-size: 12px; color: #8a8a80; margin-bottom: 4px; }
+  .lv .v { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .lv.res .v { color: #E24B4A; }
+  .lv.sup .v { color: #1A8F4A; }
+
+  footer { color: #9a9a90; font-size: 12px; text-align: center; margin-top: 26px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>A股盘前简报</h1>
+  <div class="sub">2026年10月22日 星期四 · 开盘前 · 隔夜外围 + 消息面 + 今日推演</div>
+</header>
+
+<div class="verdict">
+  <span class="tag">一句话结论</span>
+  <p>外围科技线全面反弹，但中国资产在外围是<b>背离走弱</b>的，A股自身量能又创了年内新低——今天是<b>存量资金的修复反弹，不是增量行情</b>。主攻方向在半导体/存储/MLCC这条美股传导链，锂电等创业板权重继续承压。</p>
+</div>
+
+<section>
+  <h2>隔夜美股：三大指数集体收涨，费半终结八连跌</h2>
+  <table>
+    <thead><tr><th>指数</th><th class="num">收盘</th><th class="num">涨跌</th></tr></thead>
+    <tbody>
+      <tr><td>道琼斯</td><td class="num">52,856.09</td><td class="num up">+0.69%</td></tr>
+      <tr><td>标普500</td><td class="num">7,757.17</td><td class="num up">+0.58%</td></tr>
+      <tr><td>纳斯达克</td><td class="num">26,702.86</td><td class="num up">+1.05%</td></tr>
+      <tr><td>费城半导体</td><td class="num">—</td><td class="num up">+1.97%</td></tr>
+      <tr><td>纳斯达克中国金龙</td><td class="num">—</td><td class="num down">-2.35%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>个股：半导体全线拉升，存储链修复</h3>
+  <table>
+    <tbody>
+      <tr><td>英伟达</td><td class="num up">+2.54%</td><td>特斯拉</td><td class="num up">+3.41%</td></tr>
+      <tr><td>SpaceX</td><td class="num up">+7%+</td><td>苹果</td><td class="num up">+1.32%</td></tr>
+      <tr><td>AMD</td><td class="num up">+3.36%</td><td>阿斯麦</td><td class="num up">+2.81%</td></tr>
+      <tr><td>ARM</td><td class="num up">+2.50%</td><td>台积电</td><td class="num up">+1.57%</td></tr>
+      <tr><td>SK海力士</td><td class="num up">+2.48%</td><td>美光</td><td class="num up">+1.96%</td></tr>
+      <tr><td>摩根士丹利</td><td class="num up">+3.72%</td><td>高盛</td><td class="num up">+2.23%</td></tr>
+      <tr><td>谷歌</td><td class="num down">-1.62%</td><td>礼来</td><td class="num down">-0.89%</td></tr>
+    </tbody>
+  </table>
+  <p class="src">欧股全线上涨：DAX +1.35%、CAC40 +1.06%、FTSE100 +0.19%。中概股逆势走弱：好未来 -9%、禾赛/小鹏 -5%、阿里/京东/理想 -3%。</p>
+</section>
+
+<section>
+  <h2>商品 · 汇率 · 利率</h2>
+  <table>
+    <thead><tr><th>品种</th><th class="num">数值</th><th class="num">涨跌</th></tr></thead>
+    <tbody>
+      <tr><td>COMEX黄金</td><td class="num">4,159.5 美元</td><td class="num up">+0.41%</td></tr>
+      <tr><td>COMEX白银</td><td class="num">58.12 美元</td><td class="num up">+0.20%</td></tr>
+      <tr><td>WTI原油</td><td class="num">97.15 美元</td><td class="num down">-0.68%</td></tr>
+      <tr><td>布伦特原油</td><td class="num">108.82 美元</td><td class="num flat">+0.03%</td></tr>
+      <tr><td>美元指数</td><td class="num">101.70</td><td class="num flat">持平</td></tr>
+      <tr><td>10年期美债</td><td class="num">5.12%</td><td class="num flat">持平</td></tr>
+      <tr><td>人民币中间价</td><td class="num">6.7192</td><td class="num up">续调升</td></tr>
+      <tr><td>富时A50夜盘</td><td class="num">13,202</td><td class="num up">+0.29%</td></tr>
+    </tbody>
+  </table>
+  <p class="src">在岸人民币收报 6.6777，创四年多新高。布伦特结算后因沙特阿美油田遇袭一度重上 110 美元。LME 铜 14,356（-0.5%）、铝 3,042（+1.3%）。</p>
+</section>
+
+<section>
+  <h2>今早亚太：昨日暴涨后回吐</h2>
+  <table>
+    <thead><tr><th>市场</th><th class="num">今开</th><th class="num">今日开盘</th><th class="num">昨日</th></tr></thead>
+    <tbody>
+      <tr><td>韩国 KOSPI</td><td class="num">5,670.11</td><td class="num down">-1.10%</td><td class="num up">+3.29%</td></tr>
+      <tr><td>日经225</td><td class="num">64,539.36</td><td class="num down">-0.13%</td><td class="num up">+0.85%</td></tr>
+    </tbody>
+  </table>
+  <p class="src">昨天 KOSPI 暴涨是存储链修复（SK海力士 +5.81%、三星电子 +5.67%），今早属高位回吐，不是新利空。港股昨日走弱：恒指 -0.90%、恒生科技 -1.26% 失守 4000 点，腾讯 -4.04% 跌破 400 港元，南向净卖出 44.35 亿港元。</p>
+</section>
+
+<section>
+  <h2>昨夜国内消息面</h2>
+  <div class="cols">
+    <div class="box-good">
+      <h4>利好</h4>
+      <ul>
+        <li><b>中办国办印发《关于推动科技创新和产业创新深度融合的意见》</b>，17 条举措，科技主线政策底座再夯实</li>
+        <li><b>黄仁勋 GTC 柏林演讲</b>：AI 工厂部署最快缩至 14 天，智能体与物理 AI 加速落地</li>
+        <li><b>超微电脑</b>季度初步业绩大幅超预期；<b>SpaceX 与特斯拉</b>成立独立董事特别委员会讨论合并</li>
+        <li><b>MLCC 紧缺加剧</b>：三星电机交期延至 52 周，村田/太阳诱电发涨价函，AI 服务器高容量 MLCC 涨 15%-35%</li>
+        <li><b>三季度 GDP +4.5%</b> 超预期，新动能对增长贡献率超 40%</li>
+        <li><b>央行 10/21-11/2 每日最高 1 万亿隔夜逆回购</b>；DR001 将成主要政策利率方向</li>
+        <li><b>18 只主动 ETF 明日（10/23）开售</b>，单只上限 20 亿，约 360 亿增量</li>
+        <li>证监会：稳步推出北证 50 ETF、创新性评价标准；《证券法》修改纳入立法规划</li>
+        <li>三季报预增潮：长川科技 +98~110%、华锐精密 +118~147%、诺德股份 +363%、视源股份 +185.63%、西部矿业 +130.5%</li>
+        <li><b>泽连斯基同意"冻结现状"开启和谈</b>，俄方准备 11 月中旬重启三方会谈</li>
+      </ul>
+    </div>
+    <div class="box-bad">
+      <h4>利空 / 需警惕</h4>
+      <ul>
+        <li><b>中国资产在外围背离走弱</b>：中概金龙 -2.35%，港股恒生科技失守 4000，腾讯跌破 400 港元</li>
+        <li><b>中东局势升温</b>：沙特阿美油田遭无人机袭击致人员伤亡，美国下令撤离海湾非紧急人员——地缘溢价重新抬头</li>
+        <li><b>法国 10 年期国债破 5%</b>，创 2002 年来新高，法德利差 159bp，欧债暗雷未除</li>
+        <li>美联储 <b>12 月加息概率约 90%</b>（10 月 28 日议息预期按兵不动）</li>
+        <li>今早日韩双双低开，亚太情绪不是单边乐观</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>昨日 A 股：高开低走，成交额创年内新低</h2>
+  <table>
+    <thead><tr><th>指数</th><th class="num">收盘</th><th class="num">涨跌</th></tr></thead>
+    <tbody>
+      <tr><td>上证指数</td><td class="num">3,713.03</td><td class="num down">-0.60%</td></tr>
+      <tr><td>深证成指</td><td class="num">11,704.35</td><td class="num down">-0.82%</td></tr>
+      <tr><td>创业板指</td><td class="num">2,694.71</td><td class="num down">-1.62%</td></tr>
+      <tr><td>科创50</td><td class="num">1,343.28</td><td class="num up">+0.06%</td></tr>
+      <tr><td>北证50</td><td class="num">—</td><td class="num down">-0.31%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>情绪读数</h3>
+  <table>
+    <tbody>
+      <tr><td>两市成交额</td><td class="num">14,421 亿（缩量 295 亿）</td></tr>
+      <tr><td>沪市单市成交</td><td class="num">6,428 亿（<b>年内新低</b>）</td></tr>
+      <tr><td>涨跌家数</td><td class="num"><span class="up">1,979</span> : <span class="down">3,360</span></td></tr>
+      <tr><td>涨停 / 跌停</td><td class="num"><span class="up">50</span> / <span class="down">5</span></td></tr>
+    </tbody>
+  </table>
+  <p class="src"><b>领涨</b>：养殖业、文化传媒、IT 服务、MLCC、存储芯片、液冷、数据中心、CPO<br>
+  <b>领跌</b>：电池、能源金属、白酒、乘用车、机器人、煤炭、地产链<br>
+  <b>关键拖累</b>：宁德时代三季报利润端不及预期，放量下跌超 12%，带崩整车条锂电链，创业板盘中跌破 2700 点。尾盘沪深300ETF、科创50ETF、创业板ETF 放量反抽收窄跌幅。</p>
+</section>
+
+<section>
+  <h2>今日推演</h2>
+
+  <h3>相对受益</h3>
+  <ul>
+    <li><b>半导体 / 存储 / 被动元件（MLCC）</b>——美股费半 +1.97% 结束八连跌，SK海力士、美光、三星全线修复，叠加 MLCC 交期 52 周、涨价 15-35% 的硬供需逻辑，是今天传导最直接的落点</li>
+    <li><b>算力硬件（CPO / 液冷 / 数据中心）</b>——黄仁勋 GTC 释放 AI 工厂落地加速信号，超微电脑业绩超预期</li>
+    <li><b>AI 应用 / 传媒</b>——中办国办科技产业融合意见 + 昨日传媒已经先行走强</li>
+    <li><b>农业养殖</b>——昨日逆势领涨，防御属性 + 政策催化</li>
+  </ul>
+
+  <h3>承压方向</h3>
+  <ul>
+    <li><b>锂电 / 电池链</b>——宁德时代业绩余波未消化，创业板权重仍在补跌</li>
+    <li><b>白酒等白马</b>——昨日已开始补跌，机构调仓未结束</li>
+    <li><b>高位机器人</b>——连续两天领涨后遇 GTC 事件，警惕"见光死"</li>
+  </ul>
+
+  <h3>3 个盘中观察信号</h3>
+  <div class="signal">
+    <div class="n">1</div>
+    <div><div class="t">量能能否放大</div>
+    <div class="d">沪市昨天 6,428 亿是年内新低，今天至少要看能否回到 7,000 亿上方；两市能否站上 1.5 万亿。量不回来，反弹就是脉冲。</div></div>
+  </div>
+  <div class="signal">
+    <div class="n">2</div>
+    <div><div class="t">创业板能否收复 2,700</div>
+    <div class="d">昨天收 2,694.71，刚好在整数关口下方。收不回去，说明锂电补跌没结束，指数仍是弱势。</div></div>
+  </div>
+  <div class="signal">
+    <div class="n">3</div>
+    <div><div class="t">沪指 5 日均线 + 尾盘 ETF</div>
+    <div class="d">昨天再度失守 5 日线（约 3,720 一线）。同时盯着尾盘沪深300ETF、科创50ETF 是否继续放量——这是"神秘资金"还在不在的直接证据。</div></div>
+  </div>
+
+  <div class="levels">
+    <div class="lv sup"><div class="k">下方支撑</div><div class="v">3,688 / 3,674</div></div>
+    <div class="lv res"><div class="k">上方阻力</div><div class="v">3,737 / 3,761</div></div>
+  </div>
+  <p class="src">3,761 是 10 月 15 日跳空缺口位置，已连续 5 个交易日未回补；3,674 是前期低点，也是多空分水岭。</p>
+</section>
+
+<section>
+  <h2>今日事件日历</h2>
+  <table>
+    <tbody>
+      <tr><td>10/21-10/24</td><td>第二十三届中国计算机大会（算力、信创）</td></tr>
+      <tr><td>10/21 起</td><td>2026 世界智能网联汽车大会（L3/L4 智驾、车路云）</td></tr>
+      <tr><td>10/20-10/22</td><td>英伟达 GTC 柏林大会（黄仁勋已演讲，物理 AI / 机器人）</td></tr>
+      <tr><td>今晚</td><td>美国初请失业金人数</td></tr>
+      <tr><td>10/23（五）</td><td>首批 18 只主动 ETF 开售，单只上限 20 亿</td></tr>
+      <tr><td>10/28</td><td>美联储议息会议（市场预期按兵不动）</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  数据来源：财联社、新华财经、上海证券报、中国证券网、中新经纬、同花顺、Wind<br>
+  生成时间：2026-10-22 09:20 · 以上为信息梳理，不构成投资建议
+</footer>
+
+</div>
+</body>
+</html>
