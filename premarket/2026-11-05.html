@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘前简报 · 2026-11-05</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:#f4f4f5;
+    color:#1a1a1a;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;
+    line-height:1.65;
+    padding:14px 12px 40px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;}
+  header{margin-bottom:16px;padding:0 2px;}
+  .kicker{font-size:13px;color:#8a8a8a;letter-spacing:.08em;font-weight:600;}
+  h1{font-size:23px;font-weight:700;letter-spacing:-.01em;margin:4px 0 6px;line-height:1.3;}
+  .meta{font-size:13px;color:#8a8a8a;}
+
+  .card{
+    background:#fff;border-radius:10px;padding:18px 16px;margin-bottom:14px;
+    box-shadow:0 1px 2px rgba(0,0,0,.05);
+  }
+  .verdict{
+    background:#fff;border-left:4px solid #E24B4A;border-radius:6px;
+    padding:18px 16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.07);
+  }
+  .verdict .tag{
+    display:inline-block;background:#E24B4A;color:#fff;font-size:12px;font-weight:700;
+    padding:3px 9px;border-radius:4px;letter-spacing:.05em;margin-bottom:10px;
+  }
+  .verdict h2{font-size:18px;line-height:1.55;font-weight:700;letter-spacing:-.01em;}
+  .verdict p{font-size:14px;color:#4a4a4a;margin-top:10px;line-height:1.7;}
+
+  h3{
+    font-size:16px;font-weight:700;margin-bottom:12px;
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;
+  }
+  h3 .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:20px;height:20px;border-radius:4px;background:#1a1a1a;color:#fff;
+    font-size:11px;font-weight:700;flex:0 0 auto;
+  }
+  h4{font-size:14px;font-weight:700;color:#333;margin:16px 0 8px;}
+  h4:first-of-type{margin-top:2px;}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{
+    text-align:left;font-size:12px;font-weight:600;color:#8a8a8a;
+    padding:6px 4px;border-bottom:1px solid #d8d8d8;letter-spacing:.03em;
+  }
+  td{padding:8px 4px;border-bottom:1px solid #ededed;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  th.n{text-align:right;}
+  .up{color:#E24B4A;font-weight:600;}
+  .down{color:#1A8F4A;font-weight:600;}
+  .flat{color:#8a8a8a;}
+  .muted{color:#8a8a8a;font-size:13px;}
+  .em{font-weight:700;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .note{font-size:12.5px;color:#8a8a8a;margin-top:10px;line-height:1.6;}
+
+  .col-good,.col-bad{border-radius:8px;padding:14px 13px;}
+  .col-good{background:#fdf5f5;border:1px solid #f3dcdc;}
+  .col-bad{background:#f3f8f5;border:1px solid #d9e9e0;}
+  .col-good h4,.col-bad h4{margin-top:0;font-size:13.5px;letter-spacing:.02em;}
+  .col-good h4{color:#E24B4A;}
+  .col-bad h4{color:#1A8F4A;}
+  ul{list-style:none;}
+  li{padding:6px 0 6px 13px;position:relative;font-size:14px;line-height:1.6;}
+  li:before{content:"";position:absolute;left:0;top:14px;width:4px;height:4px;border-radius:50%;background:#c0c0c0;}
+  li b{font-weight:700;}
+  li .src{color:#9a9a9a;font-size:12.5px;}
+
+  .sig{counter-reset:s;}
+  .sig li{padding:10px 0 10px 30px;border-bottom:1px solid #ededed;}
+  .sig li:last-child{border-bottom:none;}
+  .sig li:before{
+    counter-increment:s;content:counter(s);
+    position:absolute;left:0;top:11px;width:19px;height:19px;border-radius:50%;
+    background:#1a1a1a;color:#fff;font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;line-height:1;
+  }
+  .lvl{display:grid;grid-template-columns:64px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid #ededed;font-size:14px;}
+  .lvl:last-child{border-bottom:none;}
+  .lvl .k{font-weight:700;color:#555;}
+  .lvl .v{line-height:1.7;}
+
+  .feel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+  .feel div{background:#fafafa;border-radius:6px;padding:10px 8px;text-align:center;}
+  .feel .lab{font-size:12px;color:#8a8a8a;margin-bottom:4px;}
+  .feel .val{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .feel .sub{font-size:11.5px;color:#9a9a9a;margin-top:2px;}
+
+  footer{
+    margin-top:20px;padding:16px 14px;background:#ececee;border-radius:8px;
+    font-size:12.5px;color:#6a6a6a;line-height:1.75;
+  }
+  footer b{color:#4a4a4a;}
+  @media (max-width:620px){
+    body{font-size:14.5px;padding:12px 10px 32px;}
+    h1{font-size:20px;}
+    .grid2{grid-template-columns:1fr;}
+    .card{padding:16px 13px;}
+    .verdict h2{font-size:16.5px;}
+    table{font-size:13.5px;}
+    td{padding:7px 3px;}
+    .lvl{grid-template-columns:54px 1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">A股盘前简报</div>
+  <h1>2026年11月5日 · 周四</h1>
+  <div class="meta">发布 08:35 ｜ 距开盘约 55 分钟 ｜ 数据截至 11月5日 08:30</div>
+</header>
+
+<div class="verdict">
+  <span class="tag">一句话结论</span>
+  <h2>高开概率大，但别指望复刻昨天的单边——<b>昨天把指数拉起来的光模块三剑客，正是隔夜美股跌得最惨的赛道</b>。今天是「换棒」，不是「接力」。</h2>
+  <p>隔夜极度分裂：道指 <span class="up">+3.03%</span>（2025年4月以来最大单日）、标普 <span class="up">+1.58%</span>、纳指 <span class="up">+1.44%</span>、中国金龙 <span class="up">+3.49%</span>；但费半 <span class="down">-3.13%</span> 跌至六个月低点，美光 <span class="down">-7.00%</span>、闪迪 <span class="down">-7.91%</span>、Lumentum <span class="down">-7.85%</span>、Ciena <span class="down">-9.28%</span>、CoreWeave <span class="down">-10%</span>、IREN <span class="down">-11%</span>。杀的是「AI 资本开支」，不是「AI 需求」——苹果 <span class="up">+5.31%</span>、微软 <span class="up">+6.68%</span>、亚马逊 <span class="up">+6.12%</span>，钱在从卖铲子流向用铲子。<br>
+  A50 夜盘 <span class="up">+0.55%</span> 报 13101，但今早 KOSPI 低开 <span class="down">-1.82%</span>（SK海力士 <span class="down">-6%</span>）。外资给 A 股的定价明显强于韩股——这波是国产替代 + 稳市政策驱动，与美股 AI capex 的相关系数低于韩股存储。<b>主攻：黄金白银、油价下跌受益链（航空/化工/交运）、AI 应用与云、国产半导体设备材料、机器人。承压：光模块/CPO/PCB、存储模组、算力租赁、石油石化、白酒。</b></p>
+</div>
+
+<div class="card">
+  <h3><span class="num">1</span>隔夜外围</h3>
+
+  <h4>美股三大指数与费半</h4>
+  <table>
+    <tr><th>指数</th><th class="n">收盘</th><th class="n">涨跌幅</th></tr>
+    <tr><td>道琼斯工业</td><td class="n">53,356.12</td><td class="n up">+3.03%</td></tr>
+    <tr><td>标普 500</td><td class="n">7,688.62</td><td class="n up">+1.58%</td></tr>
+    <tr><td>纳斯达克综合</td><td class="n">25,736.51</td><td class="n up">+1.44%</td></tr>
+    <tr><td><b>费城半导体指数</b></td><td class="n"><b>10,268.66</b></td><td class="n down"><b>-3.13%</b></td></tr>
+    <tr><td>纳斯达克中国金龙</td><td class="n">5,722.71</td><td class="n up">+3.49%</td></tr>
+  </table>
+  <p class="note">道指创 2025 年 4 月以来最大单日涨幅、涨 1569.40 点，费半跌至六个月低点。分裂的根源：民主党横扫参众两院，德州变天——新当选州长伊诺霍萨竞选时多次承诺「立即暂停数据中心建设审批」，全美近一半拟新增 AI 数据中心项目将面临更严格的地方审查。这是对 <b>AI 资本开支</b> 的定向打击，不是对 AI 产业的否定：苹果、微软盘中双双刷新纪录高位。</p>
+
+  <h4>关键个股</h4>
+  <table>
+    <tr><th>标的</th><th class="n">涨跌幅</th><th>备注</th></tr>
+    <tr><td>微软</td><td class="n up">+6.68%</td><td>盘中创纪录高位</td></tr>
+    <tr><td>亚马逊</td><td class="n up">+6.12%</td><td>零售 + 云双线</td></tr>
+    <tr><td>苹果</td><td class="n up">+5.31%</td><td>盘中创纪录高位</td></tr>
+    <tr><td>谷歌-A</td><td class="n up">+3.18%</td><td>—</td></tr>
+    <tr><td>Meta</td><td class="n up">+1.44%</td><td>—</td></tr>
+    <tr><td>英伟达</td><td class="n down">-3.17%</td><td>—</td></tr>
+    <tr><td>特斯拉</td><td class="n down">-3.34%</td><td>—</td></tr>
+    <tr><td>SpaceX</td><td class="n down">-3%以上</td><td>德州数据中心受阻</td></tr>
+    <tr><td>台积电 ADR</td><td class="n down">-2.37%</td><td>另一口径 -2.24%</td></tr>
+    <tr><td>美光科技</td><td class="n down">-7.00%</td><td>存储链核心杀跌</td></tr>
+    <tr><td>SK海力士 ADR</td><td class="n down">-5.12%</td><td>今早韩股再跌 6%</td></tr>
+    <tr><td>闪迪</td><td class="n down">-7.91%</td><td>—</td></tr>
+    <tr><td>希捷科技</td><td class="n down">-8%以上</td><td>—</td></tr>
+    <tr><td>西部数据</td><td class="n down">-6.77%</td><td>—</td></tr>
+    <tr><td>Lumentum</td><td class="n down">-7.85%</td><td>光通信</td></tr>
+    <tr><td>Ciena</td><td class="n down">-9.28%</td><td>光通信跌幅最深</td></tr>
+    <tr><td>Coherent</td><td class="n down">-5.93%</td><td>—</td></tr>
+    <tr><td>迈威尔科技</td><td class="n down">-7%以上</td><td>—</td></tr>
+    <tr><td>CoreWeave</td><td class="n down">-10%</td><td>创上市来新低</td></tr>
+    <tr><td>IREN</td><td class="n down">-11%</td><td>数据中心运营商</td></tr>
+    <tr><td>AMD</td><td class="n up">+1.01%</td><td>—</td></tr>
+    <tr><td>高通</td><td class="n up">+5.33%</td><td>—</td></tr>
+    <tr><td>ARM</td><td class="n down">-5.28%</td><td>—</td></tr>
+    <tr><td>英特尔</td><td class="n down">-3.77%</td><td>—</td></tr>
+    <tr><td>阿斯麦</td><td class="n down">-3.60%</td><td>—</td></tr>
+  </table>
+  <p class="note">中概股集体走强：阿里巴巴 <span class="up">+4.91%</span>、百度 <span class="up">+4.50%</span>、网易 <span class="up">+4.33%</span>、腾讯 ADR <span class="up">+3.99%</span>、京东 <span class="up">+3.05%</span>、拼多多 <span class="up">+2.47%</span>。美国零售与消费同步走强：劳氏 <span class="up">+7.50%</span>、家得宝 <span class="up">+6.53%</span>、麦当劳 <span class="up">+6.53%</span>。银行股全线上涨（摩根士丹利、摩根大通涨超 4%），能源股全线下跌（康菲石油、西方石油跌超 5%，埃克森美孚 <span class="down">-4%</span> 以上）。</p>
+
+  <h4>欧股三大指数</h4>
+  <table>
+    <tr><th>指数</th><th class="n">收盘</th><th class="n">涨跌幅</th></tr>
+    <tr><td>英国 FTSE 100</td><td class="n">10,829.21</td><td class="n up">+1.79%</td></tr>
+    <tr><td>法国 CAC 40</td><td class="n">8,177.89</td><td class="n up">+1.96%</td></tr>
+    <tr><td>德国 DAX</td><td class="n">26,437.67</td><td class="n up">+2.22%</td></tr>
+    <tr><td>欧洲 STOXX 600</td><td class="n">657.40</td><td class="n up">+1.82%</td></tr>
+  </table>
+  <p class="note">欧股全线上涨，但同日欧元区 10 月 CPI 升至 <b>4.0%</b>（创 2023 年 9 月以来最高，为欧央行目标两倍），核心通胀 2.5%、服务业 3.3%；10 月综合 PMI 终值下修至 51.7 创四个月新低。<b>滞胀组合，对欧洲是坏消息，对全球流动性是「不用加息」的安慰。</b></p>
+</div>
+
+<div class="card">
+  <h3><span class="num">2</span>商品 · 汇率 · 利率</h3>
+  <table>
+    <tr><th>品种</th><th class="n">最新</th><th class="n">涨跌</th><th>口径 / 备注</th></tr>
+    <tr><td>COMEX 黄金</td><td class="n">4,072.20 美元/盎司</td><td class="n up">+3.34%</td><td>现货 4,060.13，+3.35%，重上 4000</td></tr>
+    <tr><td>COMEX 白银</td><td class="n">52.33 美元/盎司</td><td class="n up">+5.17%</td><td>现货 52.24，+4.94%</td></tr>
+    <tr><td>WTI 原油（12月）</td><td class="n">88.12 美元/桶</td><td class="n down">-8.29%</td><td>另一口径 87.49，-8.66%</td></tr>
+    <tr><td>布伦特原油（1月）</td><td class="n">94.62 美元/桶</td><td class="n down">-8.67%</td><td>另一口径 94.01，-9.43%</td></tr>
+    <tr><td>美元指数</td><td class="n">101.57</td><td class="n down">-0.30%</td><td>另一口径 101.53，-0.33%</td></tr>
+    <tr><td>10 年期美债收益率</td><td class="n">4.892%</td><td class="n down">-6.8bp</td><td>另一口径 4.884%，-8bp</td></tr>
+    <tr><td>2 年期美债收益率</td><td class="n">4.585%</td><td class="n down">-4.0bp</td><td>另一口径 4.546%，-6.6bp，两月新低</td></tr>
+    <tr><td>30 年期美债收益率</td><td class="n">5.280%</td><td class="n down">-4.5bp</td><td>—</td></tr>
+    <tr><td>离岸人民币</td><td class="n">6.6723</td><td class="down">贬值</td><td>两周来首次盘中失守 6.68</td></tr>
+    <tr><td>人民币中间价</td><td class="n">6.7180</td><td class="down">调贬 30 基点</td><td>在岸 16:30 收 6.6770</td></tr>
+    <tr><td><b>富时 A50 期指夜盘</b></td><td class="n"><b>13,101</b></td><td class="n up"><b>+0.55%</b></td><td>为今日开盘定下温和偏暖基调</td></tr>
+    <tr><td>比特币</td><td class="n">8 万美元上方</td><td class="up">+3%</td><td>盘中曾跌破 7.6 万</td></tr>
+  </table>
+  <p class="note"><b>这是今天最重要的一组数字。</b>油价单日跌 8%+，是「美伊冲突降温」的定价——民主党重掌国会后，副总统万斯把选举失利归咎于伊朗战事，市场押注外交解决概率上升，布油盘中一度跌 10%。油价崩 → 通胀预期降 → 10Y 美债 -7bp → 但黄金反而涨 3.3%（央行购金：Q3 全球央行净购金 321 吨、同比 +42%，黄金 ETF 持仓 4,256 吨创历史新高）。<b>「油跌 + 金涨 + 债涨 + 美元跌」四件事同时发生，对应的是「滞胀交易退潮 + 避险仍在」——对 A 股是成本端利好、对资源股是分化而非普跌。</b></p>
+</div>
+
+<div class="card">
+  <h3><span class="num">3</span>今早亚太</h3>
+  <table>
+    <tr><th>市场</th><th class="n">开盘点位</th><th class="n">开盘涨跌</th><th>备注</th></tr>
+    <tr><td>日经 225</td><td class="n">62,384.73</td><td class="n up">+0.32%</td><td>发稿时 +0.06%，日经期货早盘曾涨 1.2%</td></tr>
+    <tr><td>韩国 KOSPI</td><td class="n">5,580.09</td><td class="n down">-1.82%</td><td>SK海力士 <span class="down">-6%以上</span>、三星电子 <span class="down">-3%</span></td></tr>
+  </table>
+  <p class="note"><b>这是今天最该想清楚的一件事：韩股在杀，A50 在涨。</b>KOSPI 低开 1.82% 是存储双雄拖的（SK海力士 -6%、三星 -3%），直接映射隔夜美光 -7%；而 A50 夜盘 +0.55%，隐含上证高开 0.3%–0.7%。同一份外围利空，外资给韩股 -1.8%、给 A 股 +0.55%，差在<b>驱动不同</b>：韩股是「AI 存储周期股」，A 股这波是「国产替代 + 稳市政策」。这决定今天的 A 股是<b>结构性分歧</b>，不是系统性下跌。<br>
+  <span class="muted">说明：日经/KOSPI 现货开盘数据为 08:01–08:02 快讯口径，随后日经回吐至 +0.06%、KOSPI 维持 -1.78%。</span></p>
+</div>
+
+<div class="card">
+  <h3><span class="num">4</span>昨夜今晨国内消息面</h3>
+  <div class="grid2">
+    <div class="col-good">
+      <h4>利好</h4>
+      <ul>
+        <li><b>央行下调回购增持再贷款利率 0.25pct 至 1%</b>，并转为长期制度性安排；政策落地后银行已报送额度申请 <b>超 2000 亿元</b>。<span class="src">央行 11/4 公告</span></li>
+        <li><b>央行今日开展 3000 亿元买断式逆回购</b>（期限 91 天），跨月流动性明确呵护。<span class="src">央行</span></li>
+        <li><b>第三批互换便利 26 家券商中标，已披露近 600 亿</b>：中金 163 亿、国泰海通与中信各 100 亿、国投 60 亿、东吴 50 亿；中金当日完成首批质押式回购。<span class="src">公司公告</span></li>
+        <li><b>股票型 ETF 连续 22 个交易日净流入 5560 亿</b>，宽基吸金近 5400 亿，7 只核心宽基占近 5000 亿；11/3 单日净流入 837.59 亿创年内新高。<span class="src">Wind / 证券时报</span></li>
+        <li><b>国务院金融工作报告</b>：继续实施适度宽松货币政策，巩固完善资本市场稳市机制，实施好支持资本市场的货币政策工具。<span class="src">人大常委会 11/3</span></li>
+        <li><b>世界黄金协会</b>：Q3 全球央行净购金 321 吨（同比 +42%），黄金 ETF 持仓 4,256 吨创历史新高——金价上涨有实盘支撑，不只是避险情绪。<span class="src">WGC</span></li>
+        <li><b>五部门</b>：推进算力、通信基站、机房节能降碳改造；加快布局稀贵金属资源循环利用项目。<span class="src">工信部等</span></li>
+        <li><b>国行苹果 AI 开放测试</b>，Siri 深度整合阿里千问，正式版拟 12 月推送。<span class="src">11/4</span></li>
+        <li><b>商务部：中加经贸磋商取得积极进展。</b><span class="src">商务部</span></li>
+        <li><b>产业资本增持潮</b>：10 月至今 50 家重要股东宣布增持，上限合计 87.36 亿；格力、东阳光各 12 亿，润泽、协创各 10 亿。回购端：海光 5–8 亿、三环 5–10 亿、凯莱英 5–7 亿、兴森 4–5 亿、亨通控股股东增持 4–6 亿。<span class="src">数据宝 / 公告</span></li>
+        <li><b>杰瑞股份</b>获阿布扎比国家石油公司三份授标函，合计 <b>26.967 亿美元</b>（约 181 亿人民币）。<span class="src">公告</span></li>
+        <li><b>半导体设备景气延续</b>：韩媒称全球主要厂商争相签订三年后才能交付的设备合同；10 月 DRAM 价格再创新高；多家国产设备公司披露新增订单。<span class="src">韩媒 / 证券时报</span></li>
+        <li><b>摩尔线程上市以来首次季度盈利</b>；宇树科技市值 2604 亿超新易盛。<span class="src">财报 / 行情</span></li>
+      </ul>
+    </div>
+    <div class="col-bad">
+      <h4>利空 / 需警惕</h4>
+      <ul>
+        <li><b>民主党横扫参众两院，德州变天</b>：新州长承诺暂停 AI 数据中心审批，叠加佐治亚、俄亥俄、宾州州长选举翻蓝，全美近一半拟新增 AI 数据中心项目面临更严审查。<b>这是隔夜 AI 硬件链被杀的根因。</b><span class="src">中国基金报 / 新浪财经</span></li>
+        <li><b>存储链全线杀</b>：美光 -7.00%、闪迪 -7.91%、希捷 -8% 以上、西数 -6.77%、SK海力士 -5.12%；费半 -3.13% 创六个月新低。<span class="src">美股收盘</span></li>
+        <li><b>光通信链全线杀</b>：Ciena -9.28%、Lumentum -7.85%、迈威尔 -7% 以上、Coherent -5.93%、康宁 -5.83%。<b>而这三条正是昨天 A 股涨幅的贡献主力。</b><span class="src">美股收盘</span></li>
+        <li><b>算力租赁/数据中心</b>：CoreWeave -10% 创上市新低、IREN -11%、NEBIUS -7% 以上、甲骨文 -2%。<span class="src">美股收盘</span></li>
+        <li><b>今早 KOSPI 低开 1.82%</b>，SK海力士 -6%、三星 -3%，亚太存储链在补跌，A 股存储模组难独立。<span class="src">08:01 快讯</span></li>
+        <li><b>油价单日跌 8%+</b>，能源股康菲/西方石油跌超 5%、埃克森 -4% 以上；A 股石油石化昨日已跌 0.94%。<span class="src">美股收盘</span></li>
+        <li><b>白酒基本面仍在寻底</b>：19 家上市酒企前三季营收 2655.09 亿（<span class="down">-7.64%</span>）、净利 973.65 亿（<span class="down">-9.44%</span>），反转待春节验证。<span class="src">财联社</span></li>
+        <li><b>监管立案</b>：天山股份涉嫌信披违法被证监会立案；江苏雷利实控人苏达因涉嫌信披、减持违法违规被立案。<span class="src">公告</span></li>
+        <li><b>ST美晨（300237）今日停牌</b>，无复牌个股。<span class="src">公告</span></li>
+        <li><b>离岸人民币盘中失守 6.68</b>（两周来首次），中间价调贬 30 基点至 6.7180。<span class="src">行情</span></li>
+        <li><b>纯题材退潮的另一面</b>：11/3 的 11 只生肖谐音涨停股昨日集体跌停，连板股一次性交回全部涨幅，本月已有 10 家公司发异动公告。<span class="src">腾讯财经</span></li>
+        <li><b>特朗普称「伊朗战争将在我想要的时候结束」</b>，地缘仍有反复，油价下跌的定价可能被推翻。<span class="src">央视新闻</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="num">5</span>昨日 A 股（11月4日）</h3>
+  <table>
+    <tr><th>指数</th><th class="n">收盘</th><th class="n">涨跌幅</th><th class="n">备注</th></tr>
+    <tr><td>上证指数</td><td class="n">3,686.17</td><td class="n up">+2.16%</td><td class="n">收全天最高，振幅 2.64%</td></tr>
+    <tr><td>深证成指</td><td class="n">11,335.69</td><td class="n up">+4.22%</td><td class="n">—</td></tr>
+    <tr><td>创业板指</td><td class="n">2,544.73</td><td class="n up">+6.40%</td><td class="n">昨高 2,559.09</td></tr>
+    <tr><td>科创 50</td><td class="n">1,265.47</td><td class="n up">+9.92%</td><td class="n">盘中最高 1,271.27</td></tr>
+    <tr><td>科创综指</td><td class="n">—</td><td class="n up">+9.90%</td><td class="n">近两年最大单日涨幅</td></tr>
+    <tr><td>北证 50</td><td class="n">894.08</td><td class="n up">+4.56%</td><td class="n">—</td></tr>
+    <tr><td>沪深 300</td><td class="n">4,101.34</td><td class="n up">+2.31%</td><td class="n">—</td></tr>
+    <tr><td>上证 50</td><td class="n">2,808.54</td><td class="n up">+1.45%</td><td class="n">权重最弱</td></tr>
+    <tr><td>中证 500 / 1000</td><td class="n">—</td><td class="n up">+4.66% / +4.67%</td><td class="n">小盘同步</td></tr>
+  </table>
+
+  <h4>情绪读数</h4>
+  <div class="feel">
+    <div><div class="lab">涨跌家数比</div><div class="val up">5.99 : 1</div><div class="sub">4667 涨 / 779 跌</div></div>
+    <div><div class="lab">涨停 / 跌停</div><div class="val up">123 : 11</div><div class="sub">另一口径 121 / 10</div></div>
+    <div><div class="lab">成交额</div><div class="val up">2.04 万亿</div><div class="sub">环比 +3342 亿 / +19.6%</div></div>
+  </div>
+  <p class="note">成交 20,376.92 亿元，时隔 25 个交易日重回 2 万亿上方。涨超 7% 580 只、跌超 7% 仅 21 只，封板率回升至 78%，主力资金净流入 <b>521.02 亿</b>。这是 10 月以来最健康的一天——<b>但注意，上午与下午是两个市场</b>：上午亚太全线杀跌、A 股低开横盘（午盘还微跌 0.10%），午后全球风险偏好同步修复，是「一个下午完成换位」。</p>
+
+  <h4>板块与结构</h4>
+  <table>
+    <tr><th>方向</th><th>表现</th></tr>
+    <tr><td><b>领涨</b></td><td>电子 <span class="up">+9.74%</span>（申万半导体指数 <span class="up">+11.41%</span>，二级行业第一）、通信 <span class="up">+7.05%</span>、有色金属 <span class="up">+5.34%</span>、机械设备与综合均涨超 4%；算力硬件、机器人、贵金属、创新药/CRO 同步活跃</td></tr>
+    <tr><td><b>领跌</b></td><td>食品饮料 <span class="down">-1.79%</span>、煤炭 <span class="down">-0.98%</span>、石油石化 <span class="down">-0.94%</span>；白酒、乳业、生猪、银行、保险逆势调整</td></tr>
+    <tr><td><b>涨停代表</b></td><td>北方华创、瑞芯微、京仪装备、托伦斯、华峰测控、通富微电、芯源微、拓荆科技、江丰电子；山金国际、赤峰黄金、兴业银锡；药明康德、凯莱英</td></tr>
+    <tr><td><b>权重贡献</b></td><td>上证：长鑫科技、工业富联、寒武纪合计贡献 30.14 点（占涨幅近四成）；深成：中际旭创、新易盛、立讯精密合计 89.30 点（近两成）；创业板：中际旭创、新易盛、三环集团合计 57.04 点（近四成）</td></tr>
+    <tr><td><b>成交额前三</b></td><td>中际旭创 306.69 亿、新易盛 200 亿+、长鑫科技 200 亿+（长鑫单日主力净买入 30.49 亿居两市首位）</td></tr>
+  </table>
+  <p class="note"><b>结构上最该警惕的一点：创业板近四成涨幅来自中际旭创 + 新易盛 + 三环，深成近两成来自中际旭创 + 新易盛 + 立讯。</b>换言之，昨天不是「全面普涨」，是「半导体 + 光模块两条腿把指数抬起来」。而隔夜美股杀的正是这两条腿的上游（光通信 Ciena/Lumentum/Coherent、存储美光/闪迪）。<b>指数强、结构脆，这是今天所有判断的前提。</b></p>
+</div>
+
+<div class="card">
+  <h3><span class="num">6</span>今日推演与观察信号</h3>
+
+  <h4>承压 vs 相对受益</h4>
+  <div class="grid2">
+    <div class="col-bad">
+      <h4>承压方向</h4>
+      <ul>
+        <li><b>光模块 / CPO / 光通信</b>——直接对标 Ciena -9.28%、Lumentum -7.85%、Coherent -5.93%，且昨日涨幅最大、获利盘最厚。<span class="src">逻辑：估值基准被重置</span></li>
+        <li><b>存储模组 / 存储芯片</b>——美光 -7%、闪迪 -7.91%、SK海力士今早再跌 6%，价格涨（DRAM 创新高）与股价跌背离，属于分歧不是共识。<span class="src">逻辑：韩股映射</span></li>
+        <li><b>算力租赁 / IDC</b>——CoreWeave -10% 创上市新低、IREN -11%，德州暂停审批直接打击「新增供给叙事」。<span class="src">逻辑：政策定向打击</span></li>
+        <li><b>石油石化 / 油服</b>——油价 -8.3%，昨日已跌 0.94%，今天大概率补跌。<span class="src">逻辑：商品直接定价</span></li>
+        <li><b>白酒 / 乳业 / 传统消费</b>——三季报营收 -7.64%、净利 -9.44%，且昨日资金已明确从防御切向成长。<span class="src">逻辑：基本面未反转</span></li>
+      </ul>
+    </div>
+    <div class="col-good">
+      <h4>相对受益方向</h4>
+      <ul>
+        <li><b>黄金 / 白银</b>——金 4072 +3.34% 重上 4000，央行 Q3 净购金 321 吨（+42%），ETF 持仓创历史新高；昨日山金国际、赤峰黄金已涨停，有连续性。<span class="src">逻辑：实盘买盘 + 避险</span></li>
+        <li><b>航空 / 化工 / 交运 / 轮胎</b>——油价单日 -8%，成本端立刻改善，且是「油价下跌」最直接的报表受益方。<span class="src">逻辑：成本传导</span></li>
+        <li><b>AI 应用 / 软件 / 云</b>——微软 +6.68%、亚马逊 +6.12%、苹果 +5.31%，钱从「卖铲子」流向「用铲子」；国行苹果 AI 接入千问是本地催化。<span class="src">逻辑：风格切换</span></li>
+        <li><b>国产半导体设备 / 材料</b>——韩媒称设备订单排到三年后，国产设备新增订单持续，与美股 AI capex 相关性最低，是「越封闭越受益」的一环。<span class="src">逻辑：国产替代</span></li>
+        <li><b>机器人 / 具身智能</b>——今日虹桥论坛具身智能分论坛、京东双 11 人形机器人销量同比 +700%、王兴兴称明年是临界点。<span class="src">逻辑：事件 + 数据双催化</span></li>
+        <li><b>券商</b>——第三批互换便利 600 亿中标落地，是稳市政策的直接载体，昨日未参与主升。<span class="src">逻辑：政策补涨</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>盘中可验证的三个信号</h4>
+  <ul class="sig">
+    <li><b>前 30 分钟成交能否达到 6500 亿。</b>昨日全天 2.04 万亿，按近期开盘集中度（约 30%）折算，要维持量能需 ≥6500 亿；<b>低于 5000 亿即「一日游」确认</b>，指数再强也是存量博弈，冲高必回落。</li>
+    <li><b>光模块三剑客（中际旭创 / 新易盛 / 天孚通信）10:00 前能否把跌幅收窄至 -3% 内、且站回开盘价。</b>这三只是昨日创业板近四成涨幅的来源，也是隔夜美股杀跌的直接映射。<b>若三只集体 -5% 以下且不收回，创业板 2500 大概率失守，指数涨幅会被全部吞掉。</b></li>
+    <li><b>是否有第二条腿接棒。</b>看两个：券商指数 10:00 前能否涨超 1%（互换便利 600 亿落地的直接反应），黄金股能否放量续涨（金价 4000 上方）。<b>两条腿都起来 = 健康换棒；只有科技一条腿 = 高开冲高回落。</b></li>
+  </ul>
+
+  <h4>关键点位</h4>
+  <div class="lvl"><div class="k">上证</div><div class="v">阻力 <b>3,686.17</b>（昨收=昨高，站上才算真突破）→ <b>3,697.52</b>（10月高点）→ 3,720<br>支撑 <b>3,650</b>（昨日收复位）→ <b>3,638.03</b>（11/3 收盘）→ 3,605.39（昨开）/ 3,590.80（昨低）</div></div>
+  <div class="lvl"><div class="k">创业板</div><div class="v">阻力 <b>2,559.09</b>（昨高）→ <b>2,600</b> 整数<br>支撑 <b>2,500</b>（整数 + 昨日突破位）→ <b>2,458.70</b>（11/3 收盘）→ 2,376.28（昨低）</div></div>
+  <div class="lvl"><div class="k">科创50</div><div class="v">阻力 <b>1,271.27</b>（昨高）→ <b>1,300</b><br>支撑 <b>1,218.80</b>（10/28 高点）→ <b>1,196.94</b>（11/3 收盘）</div></div>
+  <p class="note">三者的共同特征：昨日全部收在最高点附近，意味着<b>今天开盘价即成本线，任何回落都会立刻产生浮亏盘</b>。所以高开幅度不必贪——高开 0.3%–0.7% 是健康的，高开 1.5% 以上反而是让获利盘从容出货。</p>
+</div>
+
+<div class="card">
+  <h3><span class="num">7</span>今日事件日历（11月5日）</h3>
+  <table>
+    <tr><th>时间</th><th>事件</th><th>影响</th></tr>
+    <tr><td>全天</td><td><b>第九届中国国际进口博览会开幕</b>（11/5–11/10，上海）</td><td>155 个国家和国际组织、境外企业超 4100 家、展览面积首破 44 万平方米。消费、跨境贸易、开放合作主题催化</td></tr>
+    <tr><td>下午</td><td><b>虹桥国际经济论坛「人形机器人与具身智能产业创新发展合作」分论坛</b></td><td>机器人 / 具身智能直接催化，与京东双 11 人形机器人销量 +700% 形成共振</td></tr>
+    <tr><td>全天</td><td>2026 移动网络大会</td><td>通信 / 6G 主题</td></tr>
+    <tr><td>今日</td><td><b>央行 3000 亿元买断式逆回购落地</b>（91 天）</td><td>跨月流动性呵护，利好券商、银行间资金面</td></tr>
+    <tr><td>今日</td><td>中元股份定增股份上市（5279.86 万股，9.47 元/股）；天铁科技股权激励股份上市（7400 万股）</td><td>个股层面，注意摊薄</td></tr>
+    <tr><td>今日</td><td><b>无新股申购、无转债申购</b></td><td>—</td></tr>
+    <tr><td>20:00</td><td><b>英国央行公布利率决议</b>（预期维持不变），20:30 行长贝利发布会</td><td>对 A 股影响间接，主要看英镑与美元指数</td></tr>
+    <tr><td>21:30</td><td>美国至 10/31 当周初请失业金人数</td><td>—</td></tr>
+    <tr><td>21:50 / 22:10</td><td>美联储哈马克、巴尔金发表讲话</td><td>留意对 12 月降息路径的表述</td></tr>
+    <tr><td>明日（11/6）</td><td><b>美国 10 月非农就业报告（20:30 北京时间，冬令时）</b></td><td><b>本周最大数据变量</b>，决定外围风险偏好能否延续</td></tr>
+    <tr><td>明日（11/6）</td><td>森峰激光（920085）北交所上市，发行价 17.79 元；北交所审议铁近科技、星基智造首发</td><td>—</td></tr>
+  </table>
+</div>
+
+<footer>
+  <b>数据来源：</b>中国金融信息网《国际金融市场早知道》11/5、东方财富全球市场收盘、中新经纬/腾讯财经美股收盘、华尔街见闻早餐 11/5、金融界全球财经早餐 11/5、同花顺 11/5 盘前早报、证券时报《A股成交额重回2万亿元》、中国经济网、财联社电报与投资日历、每日经济新闻（日韩开盘）、新浪财经早报与公告速递、Wind 指数行情。不同来源口径不一致处已在正文并列标注（布油、WTI、10Y 美债、涨停家数、台积电跌幅），以主力合约/官方口径为主。
+  <br><br>
+  本页为公开信息梳理与逻辑推演，<b>不构成投资建议</b>。数据以交易所与官方披露为准，据此操作风险自担。
+</footer>
+
+</div>
+</body>
+</html>
