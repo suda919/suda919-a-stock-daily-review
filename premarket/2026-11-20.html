@@ -108,6 +108,51 @@
     table { font-size:13.5px; }
     td, th { padding:8px 3px; }
   }
+
+  /* ===== 打印 / PDF 导出 ===== */
+  @page { size:A4; margin:11mm 10mm 12mm; }
+  @media print {
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    html, body { background:#fff !important; }
+    body { padding:0 !important; font-size:12.5pt; line-height:1.6; }
+    .wrap { max-width:100% !important; }
+    .hdr { padding:0 0 10px !important; }
+    .hdr h1 { font-size:20pt; }
+    .hdr .date { font-size:10pt; }
+    .hdr .tag { font-size:9pt; }
+    .lead { break-inside:avoid; page-break-inside:avoid; box-shadow:none !important; border:1px solid #e2e4e8; border-left:5px solid #E24B4A; padding:14px 14px !important; margin-bottom:10px !important; }
+    .lead h2 { font-size:14pt; line-height:1.5; }
+    .lead p { font-size:11pt; margin-top:8px; }
+    .lead .chain { font-size:10.5pt; margin-top:9px; padding-top:9px; }
+    .card { box-shadow:none !important; border:1px solid #e2e4e8; border-radius:8px; padding:13px 14px !important; margin-bottom:9px !important; break-inside:auto; }
+    h3.sec { font-size:13pt; break-after:avoid; page-break-after:avoid; }
+    h3.sec .num { font-size:8pt; padding:1px 5px; }
+    .sub { font-size:9.5pt; margin-bottom:8px; break-after:avoid; page-break-after:avoid; }
+    table { break-inside:auto; font-size:10.5pt; }
+    tr { break-inside:avoid; page-break-inside:avoid; }
+    th { font-size:9.5pt; padding:5px 4px; }
+    td { padding:5px 4px; line-height:1.5; }
+    .note { font-size:9.5pt; line-height:1.55; margin-top:7px; }
+    .box { break-inside:avoid; page-break-inside:avoid; padding:11px; }
+    .box h4 { font-size:11.5pt; margin-bottom:7px; }
+    .box li { font-size:10pt; line-height:1.55; margin-bottom:6px; }
+    .two > div { flex:1 1 48%; }
+    .mood { break-inside:avoid; page-break-inside:avoid; gap:6px; }
+    .mood > div { padding:8px 9px; }
+    .mood .v { font-size:13pt; }
+    .mood .k { font-size:8.5pt; }
+    .sig .item { break-inside:avoid; page-break-inside:avoid; padding:9px 0; }
+    .sig .tx { font-size:10.5pt; line-height:1.55; }
+    .sig .no { flex:0 0 20px; height:20px; font-size:9pt; }
+    .lv { break-inside:avoid; page-break-inside:avoid; gap:6px; }
+    .lv > div { padding:9px 11px; }
+    .lv p { font-size:10pt; line-height:1.75; }
+    .lv h5 { font-size:9.5pt; margin-bottom:5px; }
+    .cal td { font-size:10pt; }
+    .foot { font-size:8.5pt; line-height:1.6; padding:4px 2px 0; break-inside:avoid; page-break-inside:avoid; }
+    .inline-note { font-size:8.5pt; }
+    a { color:#1c1c1e; text-decoration:none; }
+  }
 </style>
 </head>
 <body>
