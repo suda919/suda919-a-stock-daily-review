@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘前简报 · 2026-11-24（周二）</title>
+<style>
+:root{
+  --up:#E24B4A; --dn:#1A8F4A;
+  --ink:#1c1c1e; --ink2:#4a4a4f; --ink3:#7a7a80;
+  --bg:#fbfbfa; --card:#ffffff; --line:#e3e3df; --line2:#efefec;
+  --accent:#2b2b30;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; padding:0 0 40px;
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15px; line-height:1.72; letter-spacing:0.01em;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px;}
+
+/* header */
+header{padding:28px 0 14px;border-bottom:2px solid var(--accent);}
+.kicker{font-size:12px;letter-spacing:0.18em;color:var(--ink3);text-transform:uppercase;}
+h1{font-size:23px;line-height:1.35;margin:8px 0 6px;font-weight:700;letter-spacing:-0.01em;}
+.meta{font-size:12.5px;color:var(--ink3);}
+
+/* conclusion card */
+.verdict{
+  margin:24px 0 6px;background:var(--card);border:1px solid var(--line);
+  border-left:4px solid var(--accent);border-radius:3px;padding:20px 20px 18px;
+}
+.verdict h2{margin:0 0 10px;font-size:12px;letter-spacing:0.16em;color:var(--ink3);font-weight:600;}
+.verdict p{margin:0;font-size:17px;line-height:1.75;font-weight:600;letter-spacing:-0.005em;}
+.verdict .sub{margin-top:12px;font-size:14px;line-height:1.75;color:var(--ink2);font-weight:400;}
+
+/* sections */
+section{margin-top:34px;}
+h3{
+  font-size:15px;font-weight:700;margin:0 0 14px;padding-bottom:9px;
+  border-bottom:1px solid var(--line);letter-spacing:0.06em;
+}
+h3 span{color:var(--ink3);font-weight:400;font-size:12px;letter-spacing:0;margin-left:8px;}
+h4{font-size:14px;margin:22px 0 8px;font-weight:700;color:var(--ink);}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 6px;}
+th{
+  text-align:left;font-weight:600;font-size:12px;color:var(--ink3);
+  letter-spacing:0.06em;padding:8px 6px;border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+td{padding:9px 6px;border-bottom:1px solid var(--line2);vertical-align:top;}
+th:first-child,td:first-child{padding-left:0;}
+th:last-child,td:last-child{padding-right:0;text-align:right;}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+tr:last-child td{border-bottom:none;}
+.nm{font-weight:600;}
+.up{color:var(--up);}
+.dn{color:var(--dn);}
+.flat{color:var(--ink2);}
+.note{font-size:12.5px;color:var(--ink3);line-height:1.66;margin:8px 0 0;}
+
+/* two column */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:640px){.cols{grid-template-columns:1fr;}}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:16px 16px 10px;}
+.panel h4{margin:0 0 12px;font-size:13px;letter-spacing:0.1em;}
+.panel h4.good{color:var(--up);}
+.panel h4.bad{color:var(--dn);}
+.panel ul{margin:0;padding:0;list-style:none;}
+.panel li{
+  font-size:14px;line-height:1.7;padding:9px 0;border-bottom:1px solid var(--line2);
+}
+.panel li:last-child{border-bottom:none;}
+.panel li b{font-weight:700;}
+.panel li .src{display:block;font-size:11.5px;color:var(--ink3);margin-top:2px;letter-spacing:0.02em;}
+
+/* signal list */
+ol.signals{margin:0;padding-left:0;list-style:none;counter-reset:s;}
+ol.signals li{
+  counter-increment:s;position:relative;padding:13px 0 13px 34px;
+  border-bottom:1px solid var(--line2);font-size:14.5px;line-height:1.7;
+}
+ol.signals li:before{
+  content:counter(s);position:absolute;left:0;top:13px;
+  width:22px;height:22px;border:1px solid var(--ink3);border-radius:50%;
+  font-size:11.5px;line-height:20px;text-align:center;color:var(--ink2);
+}
+ol.signals li:last-child{border-bottom:none;}
+ol.signals li b{font-weight:700;}
+
+/* levels */
+.lv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+@media(max-width:640px){.lv{grid-template-columns:1fr;}}
+.lvcard{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:14px 16px;}
+.lvcard .nm{font-size:13px;letter-spacing:0.06em;color:var(--ink3);margin-bottom:8px;}
+.lvcard .row{font-size:14px;line-height:1.85;font-variant-numeric:tabular-nums;}
+.lvcard .row em{font-style:normal;color:var(--ink3);font-size:12.5px;margin-right:6px;}
+
+/* calendar */
+.cal td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink2);font-size:13.5px;width:76px;}
+.cal td:last-child{text-align:left;}
+
+/* misc */
+.tag{
+  display:inline-block;font-size:11px;letter-spacing:0.06em;padding:1px 6px;
+  border:1px solid var(--line);border-radius:2px;color:var(--ink3);margin-left:6px;vertical-align:1px;
+}
+footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink3);line-height:1.8;}
+footer b{color:var(--ink2);font-weight:600;}
+
+@media print{
+  @page{size:A4;margin:14mm 12mm;}
+  body{background:#fff;font-size:11pt;padding-bottom:0;}
+  .wrap{max-width:none;padding:0;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  section{break-inside:auto;}
+  .verdict,.panel,.lvcard{break-inside:avoid;}
+  tr{break-inside:avoid;}
+  header{padding-top:0;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">A-Share Pre-Market Brief</div>
+  <h1>A股盘前简报 · 2026年11月24日（周二）</h1>
+  <div class="meta">A股交易日（非节假日）　数据截止 08:20　昨日为 11月23日（周一）</div>
+</header>
+
+<div class="verdict">
+  <h2>一句话结论</h2>
+  <p>偏强高开，主攻方向只有一个 —— AI 硬件（半导体设备材料 / 存储 / 光模块 / PCB）。今天是「叙事修复」而非「基本面修复」，高开能不能站住，全看前 30 分钟量能。</p>
+  <div class="sub">
+    外部是真利好：黄仁勋复职把英伟达最大的治理不确定性一次性拆掉，费半 +14.03%（2025 年以来最大单日）、30 只成分股全涨，这比任何财报都好用。但内部是「昨天已经先涨过了」——创业板昨日在毫无外部利好的情况下自己拉 +3.08%，其中逾五成涨幅来自中际旭创、新易盛、天孚三只，恰是今天最该涨的那三只。所以今天不是「低吸日」，是「验证日」：缩量高开＝情绪脉冲，放量站住＝修复成立。
+  </div>
+</div>
+
+<!-- 1 隔夜外围 -->
+<section>
+  <h3>一、隔夜外围<span>11月23日美股 / 欧股收盘</span></h3>
+  <table>
+    <thead><tr><th>指数</th><th class="num">收盘</th><th class="num">涨跌点</th><th class="num">涨跌幅</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">道琼斯工业</td><td class="num">49,595.31</td><td class="num up">+1,447.98</td><td class="num up">+3.01%</td></tr>
+      <tr><td class="nm">标普500</td><td class="num">7,237.17</td><td class="num up">+326.78</td><td class="num up">+4.73%</td></tr>
+      <tr><td class="nm">纳斯达克综合</td><td class="num">24,089.56</td><td class="num up">+1,471.83</td><td class="num up">+6.51%</td></tr>
+      <tr><td class="nm">费城半导体 SOX</td><td class="num">9,577.05</td><td class="num up">—</td><td class="num up">+14.03%</td></tr>
+      <tr><td class="nm">VIX 恐慌指数</td><td class="num">26.62</td><td class="num dn">−9.27</td><td class="num dn">−25.8%</td></tr>
+      <tr><td class="nm">纳斯达克中国金龙</td><td class="num">5,140.67</td><td class="num up">—</td><td class="num up">+2.44%</td></tr>
+      <tr><td class="nm">英国 FTSE100</td><td class="num">10,480.82</td><td class="num up">+134.48</td><td class="num up">+1.30%</td></tr>
+      <tr><td class="nm">法国 CAC40</td><td class="num">8,044.84</td><td class="num up">+117.09</td><td class="num up">+1.48%</td></tr>
+      <tr><td class="nm">德国 DAX</td><td class="num">25,337.27</td><td class="num up">+534.49</td><td class="num up">+2.15%</td></tr>
+    </tbody>
+  </table>
+  <p class="note">标普与纳指均创 2025 年 4 月 8 日以来最大单日涨幅；费半创 2025 年以来最大单日涨幅，30 只成分股全线收涨。欧股另有口径 FTSE +1.35% / CAC +1.55% / DAX +2.26%（统计时点差异）。</p>
+
+  <h4>关键个股</h4>
+  <table>
+    <thead><tr><th>标的</th><th class="num">收盘/涨跌</th><th>标的</th><th class="num">收盘/涨跌</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">英伟达 NVDA</td><td class="num up">165.05　+31.48%</td><td class="nm">台积电 TSM</td><td class="num up">+14.01%</td></tr>
+      <tr><td class="nm">美光 MU</td><td class="num up">+19.04%</td><td class="nm">SK海力士</td><td class="num up">+20.00%</td></tr>
+      <tr><td class="nm">英特尔 INTC</td><td class="num up">+16.34%</td><td class="nm">ARM</td><td class="num up">+16.08%</td></tr>
+      <tr><td class="nm">科磊 KLAC</td><td class="num up">+14.96%</td><td class="nm">应用材料 AMAT</td><td class="num up">+14.62%</td></tr>
+      <tr><td class="nm">西部数据</td><td class="num up">+13.84%</td><td class="nm">希捷</td><td class="num up">+13.80%</td></tr>
+      <tr><td class="nm">特斯拉 TSLA</td><td class="num up">+11.46%</td><td class="nm">闪迪</td><td class="num up">+10.69%</td></tr>
+      <tr><td class="nm">高通 QCOM</td><td class="num up">+10.30%</td><td class="nm">阿斯麦 ASML</td><td class="num up">+9.28%</td></tr>
+      <tr><td class="nm">AMD</td><td class="num up">+6.85%</td><td class="nm">Meta</td><td class="num up">+6.55%</td></tr>
+      <tr><td class="nm">谷歌</td><td class="num up">+6.34%</td><td class="nm">SpaceX</td><td class="num up">+4.35%</td></tr>
+      <tr><td class="nm">亚马逊</td><td class="num up">+3.47%</td><td class="nm">博通 AVGO</td><td class="num up">+3.00%</td></tr>
+      <tr><td class="nm">苹果 AAPL</td><td class="num up">+1.90%</td><td class="nm">微软 MSFT</td><td class="num up">+1.65%</td></tr>
+      <tr><td class="nm">CoreWeave</td><td class="num up">+22.00%</td><td class="nm">Anthropic</td><td class="num dn">−1.43%</td></tr>
+    </tbody>
+  </table>
+  <p class="note">英伟达单日市值增加 9,520 亿美元（约 6.39 万亿元人民币），创全球上市公司单日市值增加纪录，总市值 3.98 万亿美元重回美股市值第二。板块：科技 +9.03%、通信服务 +5.18% 领涨；能源 −1.32%、必需消费 −0.09% 垫底 —— 钱从「红利/能源」流向「AI」，这个方向对今日 A 股直接映射。</p>
+</section>
+
+<!-- 2 商品汇率利率 -->
+<section>
+  <h3>二、商品 / 汇率 / 利率<span>11月23日收盘（含夜盘）</span></h3>
+  <table>
+    <thead><tr><th>品种</th><th class="num">报价</th><th class="num">变动</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">COMEX 黄金</td><td class="num">3,649.20</td><td class="num up">+3.90%</td><td>期货结算价，终结三连跌</td></tr>
+      <tr><td class="nm">现货黄金</td><td class="num">3,632.53</td><td class="num up">+2.66%</td><td>纽约尾盘口径</td></tr>
+      <tr><td class="nm">COMEX 白银</td><td class="num">43.14</td><td class="num up">+4.67%</td><td>现货银 43.08 / +4.77%</td></tr>
+      <tr><td class="nm">WTI 原油（1月）</td><td class="num">80.17</td><td class="num dn">−3.88%</td><td>三个月低点</td></tr>
+      <tr><td class="nm">布伦特原油（1月）</td><td class="num">89.37</td><td class="num dn">−3.46%</td><td>失守 90 美元</td></tr>
+      <tr><td class="nm">美元指数</td><td class="num">104.318</td><td class="num up">+0.49%</td><td>续强，欧元 1.0904</td></tr>
+      <tr><td class="nm">10 年期美债</td><td class="num">4.942%</td><td class="num dn">−0.21bp</td><td>另有 4.918% 口径</td></tr>
+      <tr><td class="nm">2 年期美债</td><td class="num">4.685%</td><td class="num up">+4.48bp</td><td>短端在定价加息</td></tr>
+      <tr><td class="nm">30 年期美债</td><td class="num">5.305%</td><td class="num dn">−2.50bp</td><td>—</td></tr>
+      <tr><td class="nm">离岸人民币 CNH</td><td class="num">6.6665</td><td class="num up">升 80 点</td><td>日内 6.6802–6.6643</td></tr>
+      <tr><td class="nm">富时 A50 期指（夜盘）</td><td class="num">12,773</td><td class="num up">+0.99%</td><td>05:15 收盘</td></tr>
+      <tr><td class="nm">恒指夜盘</td><td class="num">22,527</td><td class="num up">+0.70%</td><td>恒生科技夜盘 +1.85%</td></tr>
+      <tr><td class="nm">LME 铜</td><td class="num">12,490</td><td class="num up">+330 美元</td><td>美元/吨</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>这里有一个必须点出来的矛盾：</b>股市暴涨，但 10Y 美债收益率反而微跌 0.21bp、30Y 跌 2.5bp，只有 2Y 涨 4.48bp。意思是市场只认「12 月加息」这一件事（Reuters 口径概率 96%，上周五 89%），并没有因为股市涨就重新定价「宽松」。所以这波反弹的定性是<b>估值修复</b>，不是流动性转向 —— 对应 A 股就是「能涨，但别当成新一轮牛市起点」。CNH 逆着美元升值（美元 +0.49% 而人民币升 80 点）是外资没在撤的证据，也支持高开。</p>
+</section>
+
+<!-- 3 今早亚太 -->
+<section>
+  <h3>三、今早亚太<span>11月24日 开盘</span></h3>
+  <table>
+    <thead><tr><th>指数</th><th class="num">开盘</th><th class="num">涨跌幅</th><th>细节</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">韩国 KOSPI</td><td class="num">4,880.16</td><td class="num up">+3.64%</td><td>盘初扩至 +3.8%；三星电子 +9%，SK海力士 +10.5%</td></tr>
+      <tr><td class="nm">日经 225</td><td class="num">57,009.99</td><td class="num up">+1.02%</td><td>另有 +1.2% 口径</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>折让比 3.7 : 1。</b>KOSPI 开盘 +3.64%，而 A50 夜盘只给 +0.99%，折让比接近 3.7 倍 —— 这与 10/30（−2.99/−0.33）、11/03（−2.46/−0.40）、11/20（−4.00/−1.12）、11/23（−2.77/−0.85）完全同一模式。原因是韩股权重压在三星+海力士两只存储股上，它们是今天利好的正中心；而上证权重压在银行、保险、白酒上，它们是今天资金的<b>来源</b>而不是<b>去处</b>。<br>
+  推论：隐含上证高开 <b>0.6%–1.0%</b>（对应 3,560–3,575）。别按韩股 +3.6% 外推上证，那是错的；但创业板、科创50 的高开幅度会显著大于这个数，因为它们的权重恰是今天的主攻方向。印度国家证券交易所今日休市。</p>
+</section>
+
+<!-- 4 消息面 -->
+<section>
+  <h3>四、昨夜国内政策与消息面</h3>
+  <div class="cols">
+    <div class="panel">
+      <h4 class="good">利好</h4>
+      <ul>
+        <li><b>英伟达恢复黄仁勋 CEO 职务，即刻生效。</b>董事会一致投票通过，并称已听取美国政府高层意见、确信不构成国家安全风险；特朗普公开发文称「正确且恰当」。12月3日黄仁勋将出席参议院银行委员会出口管制听证会。<span class="src">央视新闻 / 新华社 / 财联社</span></li>
+        <li><b>两融细则落地：不只降比例，存量合约同样适用。</b>沪深北交易所 11月30日起融资保证金比例 100%→80%。监管已向券商下发通知：新开仓与存量合约一并适用，投资者不必了结存量即可按新指标计算；同时要求对异常交易从严适用保证金比例、折算率，审慎控授信。<span class="src">财联社 / 同花顺</span></li>
+        <li><b>回购刷屏，且大额注销成主流。</b>中际旭创 20–40 亿（价格上限 600 元/股）；盐湖股份 15–20 亿全部注销；摩尔线程 5–10 亿（已获中行 9 亿贷款承诺）；圣泉集团 2–4 亿注销；兴业银锡 3–5 亿；瑞丰新材 2.5–5 亿；广田集团 3000–6000 万。<span class="src">中国证券报</span></li>
+        <li><b>5 家券商集中披露增持/回购进展</b>：长江证券、东吴证券、国联民生、中泰证券、红塔证券。<span class="src">中国证券报</span></li>
+        <li><b>央行连续净投放。</b>11月23日开展 4,995 亿元隔夜逆回购（利率 1.25%），对冲到期的 3,795 亿，单日净投放 1,200 亿元。今日在香港招标发行第十、十一期央票合计 500 亿元。<span class="src">中国人民银行</span></li>
+        <li><b>10 月全社会用电量 8,709 亿千瓦时 +1.6%</b>，较 9 月回升 0.4pct；1–10 月累计 89,442 亿千瓦时 +3.7%。<span class="src">国家能源局</span></li>
+        <li><b>算力订单与重组：</b>蜂助手签 16.64 亿元算力服务器采购合同；艾为电子发股+现金收购钰泰半导体 100%（今日复牌）；英力特购宝丰光伏 100%（构成重组上市，今日复牌）。<span class="src">公司公告</span></li>
+        <li><b>四部门印发《「一老一小」服务体系建设实施方案》</b>，提养老机构配置智能健康监测、辅助器具 —— 昨日人形机器人反弹的直接催化之一。<span class="src">国家发改委等</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4 class="bad">利空 / 需警惕</h4>
+      <ul>
+        <li><b>油价崩，布油失守 90。</b>WTI 80.17 −3.88%（三个月低点）、布油 89.37 −3.46%。原因：中东供应增加 + 利比亚输油管道恢复输油，盖过了霍尔木兹海峡三艘油轮触雷的担忧。→ 石油石化为今日最确定的承压方向（昨日已 −1.25%）。<span class="src">第一财经 / 财联社</span></li>
+        <li><b>12 月加息概率升至 96%</b>（上周五 89%），1 月加息概率 63%（51%）。纽约联储威廉姆斯：通胀约 3.5%，仍「过高」。11月25日 21:30 美国 10 月 PCE 是本周最大变量。<span class="src">Reuters / 纽约联储</span></li>
+        <li><b>杠杆资金还没回来。</b>截至 11月20日沪深融资余额 21,437.91 亿元，单日减 417.23 亿，连续第 6 个交易日下降；近一周净偿还 859.16 亿。三市两融余额 21,855 亿元。<span class="src">交易所披露 / 证券时报</span></li>
+        <li><b>昨日红利全线失血：</b>保险 −2.86%、白酒 −1.98%、乘用车 −1.53%、国有大型银行 −1.20%，上证50 −0.86% 是唯一收跌的权重宽基。今天若风险偏好继续升，这条线还会被抽。<span class="src">收盘复盘</span></li>
+        <li><b>炸板风险在升高。</b>昨日涨幅超 9% 个股 295 只、涨停 151 家、炸板 27 家。今天叠加高开，连板与高位题材的兑现压力是全天最大不确定性。<span class="src">同花顺</span></li>
+        <li><b>17 只跨境 ETF 停牌至 10:30</b>：纳指ETF国泰、纳指100ETF博时、纳斯达克ETF华夏、标普500ETF博时、全球芯片LOF、纳指科技ETF景顺等。复牌后大概率对前期高溢价做一次性收敛，别在高溢价时接。<span class="src">东方财富</span></li>
+        <li><b>港股昨日反而跌：</b>恒指 22,383.74 −0.12%、恒生科技 3,508.00 −0.09%，南向资金净卖出 96.27 亿元。昨日 A 股 V 型反转时港股没跟，说明外资口径的分歧仍在。<span class="src">公开行情</span></li>
+        <li><b>广田集团收盘 0.99 元</b>，首次低于面值，触发面值退市风险提示（首次公告）。<span class="src">公司公告</span></li>
+        <li><b>本周三流动性三重到期：</b>1 万亿元 MLF + 800 亿元国库现金定存到期，同日逢缴准日；当晚 21:30 美国 10 月 PCE + Q3 GDP 修正值。周内的资金面高点在明天，不在今天。<span class="src">Wind / 中国证券报</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5 昨日A股 -->
+<section>
+  <h3>五、昨日 A 股<span>11月23日 深 V 反转</span></h3>
+  <table>
+    <thead><tr><th>指数</th><th class="num">收盘</th><th class="num">涨跌幅</th><th class="num">开 / 高 / 低</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">上证指数</td><td class="num">3,538.95</td><td class="num up">+0.15%</td><td class="num">3,503.52 / 3,544.60 / 3,476.65</td></tr>
+      <tr><td class="nm">深证成指</td><td class="num">10,454.37</td><td class="num up">+1.93%</td><td class="num">10,155.60 / 10,510.18 / 10,118.02</td></tr>
+      <tr><td class="nm">创业板指</td><td class="num">2,280.20</td><td class="num up">+3.08%</td><td class="num">2,195.52 / 2,297.73 / 2,188.45</td></tr>
+      <tr><td class="nm">科创50</td><td class="num">1,227.89</td><td class="num dn">−0.26%</td><td class="num">1,211.44 / 1,243.16 / 1,177.56</td></tr>
+      <tr><td class="nm">北证50</td><td class="num">795.38</td><td class="num up">+4.67%</td><td class="num">752.05 / 798.40 / 751.31</td></tr>
+      <tr><td class="nm">沪深300</td><td class="num">3,958.29</td><td class="num up">+0.09%</td><td class="num">3,931.47 / 3,968.45 / 3,901.49</td></tr>
+      <tr><td class="nm">上证50</td><td class="num">2,762.10</td><td class="num dn">−0.86%</td><td class="num">2,767.91 / 2,767.91 / 2,734.17</td></tr>
+    </tbody>
+  </table>
+  <p class="note">这是一根教科书级的深 V：沪指早盘一度跌至 3,476.65（−1.62%），下跌家数近 4,700 家；午后集体拉升，收盘全红。科创50 更极端 —— 盘中最低 1,177.56（−4.35%），收盘只跌 0.26%。</p>
+
+  <h4>昨日情绪读数</h4>
+  <table>
+    <thead><tr><th>指标</th><th class="num">数值</th><th>判读</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">两市成交额</td><td class="num">1.5529 万亿</td><td>环比 +1,307 亿（+9.2%），放量，但离 2 万亿的情绪阈值还远</td></tr>
+      <tr><td class="nm">涨跌家数</td><td class="num">4,658 : 783</td><td>5.95 : 1，赚钱效应彻底翻转（上周五还是 0.06 : 1）</td></tr>
+      <tr><td class="nm">涨停 / 跌停</td><td class="num">151 : 7</td><td>21.6 : 1，跌停家数从上周五 58–68 家塌到 7 家</td></tr>
+      <tr><td class="nm">涨幅超 9% 个股</td><td class="num">295 只</td><td>进攻性极强，但也意味着今日高开后兑现盘厚</td></tr>
+      <tr><td class="nm">炸板</td><td class="num">27 家</td><td>涨停家数另有 167 家口径（东财），口径差异需注意</td></tr>
+      <tr><td class="nm">申万一级行业</td><td class="num">22 / 31 收红</td><td>传媒 +4.43%、通信 +4.34%、机械设备 +4.04% 领涨；食品饮料 −1.32%、石油石化 −1.25%、煤炭 −1.17% 垫底</td></tr>
+    </tbody>
+  </table>
+
+  <h4>谁把指数拉起来的</h4>
+  <table>
+    <thead><tr><th>指数</th><th>贡献前三</th><th class="num">合计贡献</th><th>占指数涨幅</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">上证指数</td><td>长鑫科技、工业富联、农业银行</td><td class="num">+6.04 点</td><td>超过指数全部涨幅</td></tr>
+      <tr><td class="nm">深证成指</td><td>中际旭创、新易盛、天孚通信</td><td class="num">+53.10 点</td><td>近三成</td></tr>
+      <tr><td class="nm">创业板指</td><td>中际旭创、新易盛、天孚通信</td><td class="num">+34.82 点</td><td>逾五成</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>这就是今天最关键的一条结构证据。</b>昨日创业板逾一半的涨幅，来自「易中天」三只 —— 而这三只、连同长鑫科技、工业富联，正是隔夜费半 +14% 最直接映射的标的。也就是说：<b>昨天领涨的核心，今天有外部利好背书</b>，这在过去一个月是罕见的（11/05、11/12 都是「昨日领涨＝隔夜被杀」）。<br>
+  但反过来看，也意味着今天开盘这三只的涨幅里，已经预支了昨日的 +13%（天孚）、+9%（新易盛）。所以判断标准不是「涨不涨」，而是「高开之后有没有承接」。<br>
+  成交额前列：中际旭创 227.67 亿（两市第一）、新易盛 205.61 亿、长鑫科技 109.65 亿、东山精密 107.26 亿、寒武纪 97.30 亿。通信设备主力净流入 69.15 亿元，居所有二级行业首位。<br>
+  两市滚动市盈率：沪深300 13.43 倍、万得全A 19.12 倍，处于相对低位。</p>
+</section>
+
+<!-- 6 推演 -->
+<section>
+  <h3>六、今日推演与观察信号</h3>
+
+  <h4>承压方向（各自逻辑）</h4>
+  <table>
+    <thead><tr><th>方向</th><th>逻辑</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">石油石化 / 油服</td><td>WTI −3.88%、布油失守 90，且是「供应增加 + 利比亚管道恢复」的基本面原因，不是一次性事件。昨日该板块已 −1.25%，今天补跌概率最高。</td></tr>
+      <tr><td class="nm">银行 / 保险 / 白酒（红利）</td><td>昨日保险 −2.86%、白酒 −1.98%、大行 −1.20%，上证50 是唯一收跌宽基。今天风险偏好继续升，红利还会被抽血。这是典型的跷跷板，不是基本面变化。</td></tr>
+      <tr><td class="nm">高位连板 / 纯题材</td><td>昨日 295 只涨超 9%、151 只涨停，今日高开后这批筹码的兑现意愿最强。叠加 27 家炸板，连板梯队的接力成本今天会明显上升。</td></tr>
+      <tr><td class="nm">跨境 ETF（纳指/标普系）</td><td>17 只停牌至 10:30。停牌前的溢价在复牌后要一次性收敛，且隔夜纳指已 +6.51%，溢价与净值的关系会更扭曲。</td></tr>
+      <tr><td class="nm">黄金股</td><td>隔夜金价 +3.90% 是超跌反弹（上周累跌约 9%，3 月以来最大单周跌幅），不是趋势重启；美元 104.32 仍在走强、12 月加息概率 96%，对金价构成压制。反弹可参与，不宜当主线。</td></tr>
+    </tbody>
+  </table>
+
+  <h4>相对受益方向（各自逻辑）</h4>
+  <table>
+    <thead><tr><th>方向</th><th>逻辑与排序依据</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">① 半导体设备 / 材料</td><td>费半 30 只成分股全涨，其中设备与材料涨幅最靠前且最「干净」：科磊 +14.96%、应用材料 +14.62%、阿斯麦 +9.28%。这类标的的驱动是「行业景气 + 国产替代」，不依赖英伟达个体叙事，昨天的涨幅也最温和（昨日领涨的是光模块，不是设备）。属于「有利好、没透支」。</td></tr>
+      <tr><td class="nm">② 存储 / HBM 配套</td><td>存储是本轮最强的一环：SK海力士 +20.00%、美光 +19.04%、闪迪 +10.69%、西数 +13.84%、希捷 +13.80%。今早韩股三星 +9%、海力士 +10.5% 二次确认。有海外价格与指引背书，是「可验证的景气」。</td></tr>
+      <tr><td class="nm">③ 光模块 / CPO</td><td>昨日创业板逾五成涨幅来源，今天有最直接的母体利好（NVDA +31.48% 拆掉治理不确定性）。<b>但这是双刃剑</b>：昨日已 +9%~13%，今天高开幅度可能直接到 5% 以上，追高的性价比最差。中际旭创昨夜公告 20–40 亿回购（价格上限 600 元）是托底，不是加速器。</td></tr>
+      <tr><td class="nm">④ PCB / 覆铜板</td><td>跟随算力硬件，弹性略低于光模块但位置更低。东山精密昨日成交 107.26 亿排第四，资金已在里面。</td></tr>
+      <tr><td class="nm">⑤ AI 服务器 / 液冷 / 电源连接器</td><td>CoreWeave +22%、工业富联昨日是上证前三贡献。这一环对「AI capex 是否延续」的敏感度最高，也最容易在情绪退潮时被打回。</td></tr>
+      <tr><td class="nm">⑥ 机器人 / 具身智能</td><td>独立于外部的内部催化：四部门「一老一小」方案 + 马斯克 Optimus 量产表态，昨日已批量 20cm 涨停。今天若 AI 硬件高开过大，资金可能分流到这里做接力。</td></tr>
+    </tbody>
+  </table>
+
+  <h4>3 个盘中可验证的观察信号</h4>
+  <ol class="signals">
+    <li><b>前 30 分钟成交 ≥ 7,000 亿。</b>昨日全天 1.5529 万亿，高开日要成立必须显著放量。≥7,000 亿＝增量资金真进来了；5,500–7,000 亿＝存量博弈，日内冲高回落概率大；<5,500 亿＝情绪脉冲，直接按「高开低走」处理，别在 10 点后加仓。</li>
+    <li><b>「易中天」三只：10:00 前不破开盘价。</b>中际旭创、新易盛、天孚通信昨日分别贡献创业板 34.82 点（逾五成）。具体验证：高开 5% 以上且 10:00 前守住开盘价＝承接有效；若开盘冲 10%+ 后 10:30 前开板并回落超 3%，说明是借利好出货，当天全市场的高开都会跟着塌。中际旭创昨日收 227.67 亿成交居首，它的分时就是今天 AI 链的分时。</li>
+    <li><b>科创50 站上 1,243.16（昨高）+ 上证50 由跌转涨，两个同时成立才算真修复。</b>只有科创涨、上证50 继续跌，就是昨天那种「存量跷跷板」，指数级别没有空间（上证涨幅会被银行、保险、白酒抵消）。两个都成立，才说明是增量资金进场、能走出指数级行情。</li>
+  </ol>
+</section>
+
+<!-- 7 关键点位 -->
+<section>
+  <h3>七、关键点位<span>基于 11月23日收盘</span></h3>
+  <div class="lv">
+    <div class="lvcard">
+      <div class="nm">上证指数　3,538.95</div>
+      <div class="row"><em>上方</em><span class="up">3,544.60</span>（昨高）→ <span class="up">3,577.62</span>（11/19 收盘 = 缺口下沿）→ <span class="up">3,600</span></div>
+      <div class="row"><em>下方</em><span class="dn">3,503.52</span>（昨开）→ <span class="dn">3,476.65</span>（昨低，破位即本轮反弹失败）→ <span class="dn">3,450</span></div>
+    </div>
+    <div class="lvcard">
+      <div class="nm">创业板指　2,280.20</div>
+      <div class="row"><em>上方</em><span class="up">2,297.73</span>（昨高）→ <span class="up">2,320</span>（11/14 收盘密集区）→ <span class="up">2,350</span></div>
+      <div class="row"><em>下方</em><span class="dn">2,250</span>→ <span class="dn">2,212.13</span>（11/20 收盘）→ <span class="dn">2,188.45</span>（昨低）</div>
+    </div>
+    <div class="lvcard">
+      <div class="nm">科创50　1,227.89</div>
+      <div class="row"><em>上方</em><span class="up">1,243.16</span>（昨高，第一道）→ <span class="up">1,270.78</span>（11/19 收盘）→ <span class="up">1,300</span></div>
+      <div class="row"><em>下方</em><span class="dn">1,200</span>→ <span class="dn">1,177.56</span>（昨低）→ <span class="dn">1,160</span></div>
+    </div>
+    <div class="lvcard">
+      <div class="nm">今日隐含高开测算</div>
+      <div class="row">A50 夜盘 +0.99% → 上证 <span class="up">+0.6%~+1.0%</span>（<span class="up">3,560–3,575</span>）</div>
+      <div class="row">即：<b>高开直接顶到 3,577.62 缺口下沿</b>，开盘第一件事就是测这个位置能不能过</div>
+    </div>
+  </div>
+  <p class="note">解读：上证 3,577.62 是 11/19 收盘价，与 11/20 的收盘 3,533.79 之间留着约 44 点的下跳缺口。今天按 A50 给的隐含高开正好落在缺口下沿 —— 这是「一步到位」而不是「留有余地」的走法。过不去，就是又一次高开低走；过了并站稳，缺口回补空间才打开。<br>
+  创业板与科创50 的逻辑不同：它们的高开幅度会大于上证（因为权重股正好是今天的利好中心），但 2,297.73 与 1,243.16 都是昨日盘中高点，昨日尾盘冲高留下的套牢盘就压在这两个位置上方，第一波冲高遇阻很正常，关键看遇阻后的第二波。</p>
+</section>
+
+<!-- 8 事件日历 -->
+<section>
+  <h3>八、今日事件日历<span>11月24日 周二</span></h3>
+  <table class="cal">
+    <thead><tr><th>时间</th><th>事件</th></tr></thead>
+    <tbody>
+      <tr><td>全天</td><td><b>无新股申购、无新股上市</b>（东财日历 + 财联社双源确认）</td></tr>
+      <tr><td>全天</td><td>限售股解禁 7 家、合计 5,050.99 万股 / <b>8.89 亿元</b>（规模极小，不构成压力）；英特科技解禁比例 24.32%（6.0 亿元）居首</td></tr>
+      <tr><td>开市起</td><td>复牌：艾为电子（收购钰泰半导体 100%）、英力特（购宝丰光伏 100%，构成重组上市）、艾艾精工（要约收购完成，上海誉升持股 40% 成控股股东）、ST天圣（摘帽改名天圣制药）、启迪设计 / 欢瑞世纪（实施其他风险警示，改名 ST启设 / ST欢瑞）</td></tr>
+      <tr><td>开市—10:30</td><td><b>17 只跨境 ETF 停牌</b>：纳指ETF国泰、纳指100ETF博时、纳斯达克ETF华夏、标普500ETF博时、全球芯片LOF、纳指科技ETF景顺、纳指ETF富国/广发/易方达/嘉实/汇添富、美国50ETF易方达/汇添富、纳斯达克100ETF招商/大成、标普500ETF国泰、纳斯达克ETF华安</td></tr>
+      <tr><td>全天</td><td>2026 年 <b>6G 发展大会</b>（11/24–25，上海松江）；<b>WSEF2026 世界太空经济论坛</b>（11/24–26，北京海淀）；绿色与安全港口技术交流会（11/24–26，广州）；<b>OceanBase AI 数据大会</b>（北京）；<b>智源 REAL 物理 AI 开放日</b>（中关村）</td></tr>
+      <tr><td>盘前</td><td>哔哩哔哩 2026 Q3 财报（美股盘前）</td></tr>
+      <tr><td>14:30</td><td><b>华为 Mate X8 及全场景新品发布会</b>（旗舰大折叠）—— 消费电子 / 折叠屏链的盘中变量</td></tr>
+      <tr><td>15:00</td><td>国家卫健委发布会（四川自贡，推广三明医改经验）</td></tr>
+      <tr><td>16:00 前后</td><td>德国 11 月 IFO 商业景气指数</td></tr>
+      <tr><td>19:30</td><td><b>小米集团 Q3 财报电话会</b> —— 汽车业务毛利率是关注点</td></tr>
+      <tr><td>23:00</td><td>美国 11 月谘商会消费者信心指数</td></tr>
+      <tr><td>全天</td><td>央行在香港招标发行第十期、第十一期央票，合计 500 亿元；国家统计局发布流通领域重要生产资料市场价格变动情况</td></tr>
+      <tr><td>到期</td><td><b>4,995 亿元隔夜逆回购到期</b>（与昨日投放量等额，中性对冲）</td></tr>
+      <tr><td>休市</td><td>印度国家证券交易所休市（古鲁那纳克诞辰日）</td></tr>
+      <tr><td>本周待办</td><td><b>11/25</b>：1 万亿 MLF + 800 亿国库现金定存到期、缴准日；21:30 美国 10 月 PCE + Q3 GDP 修正值 · <b>11/26</b>：美股感恩节全天休市 · <b>11/27</b>：美股提前至 13:00 收盘（黑色星期五）· <b>11/30</b>：两融保证金 80% 正式施行 + 11 月官方 PMI</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <b>数据来源</b>：新华社 / 央视新闻 / 中新经纬 / 第一财经 / 中国证券报 / 上海证券报 / 证券时报 / 财联社 / 每日经济新闻 / 新华财经 / 东方财富 / 同花顺 iFinD（指数 basic_info 结构化接口）/ 国家能源局 / 中国人民银行 / 沪深北交易所公告 / 公司公告。<br>
+  <b>口径说明</b>：①SOX、VIX、金龙指数点位取自 iFinD 与 Yahoo 口径；②欧股与原油、黄金存在结算价与电子盘两个口径，正文已并列；③10Y 美债有 4.942%（每经/新华财经）与 4.918%（Yahoo 收盘）两个读数；④涨停家数有 151（中证报/21财经）与 167（东财）两个口径；⑤创业板 / 科创50 的昨日高低点为交易所收盘数据，与部分媒体快讯可能有小数差异。<br>
+  <b>未获取项</b>：昨日官方炸板率（仅拿到炸板 27 家的绝对数，未取到比率）、高通与 SpaceX 的收盘价（仅有涨跌幅）、纳指100 点位。<br>
+  <br>
+  以上为信息梳理，不构成投资建议。
+</footer>
+
+</div>
+</body>
+</html>
